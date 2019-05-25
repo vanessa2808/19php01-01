@@ -1,0 +1,17 @@
+.red{
+	background-color: white;
+	height: 50px;
+	width: 50px;
+	float: left;
+	border: 1px solid black
+}
+.black{
+	background-color: black;
+	height: 50px;
+	width: 50px;
+	float: left;
+	border: 1px solid black
+}
+.line{
+	width: 416px;
+}
