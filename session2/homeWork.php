@@ -35,6 +35,9 @@ function drawTriangle(){
 	function moneySum(){
 		echo "<p class='excercise'>1. Cần có tổng 1.000.000 đồng từ 3 loại tiền 10.000 đồng, 20.000 đồng, 50.000 đồng. Lập chương trình để tìm ra tất cả các phương án có thể</p>";
 		echo "<p class='solution'>Solution:</p>";
+		echo "<p class='details'>";
+
+		echo "</p>";
 
 	}
 	function currencyBank(){
