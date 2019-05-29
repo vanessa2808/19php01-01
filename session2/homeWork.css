@@ -1,3 +1,13 @@
 .triangle{
 	transform: rotate(360deg);
 }
+.excercise{
+	font-size: 20px;
+	font-weight: bold;
+}
+.solution{
+	font-style: italic ;
+	font-size: 20px;
+	text-align: center;
+	color: red;
+}

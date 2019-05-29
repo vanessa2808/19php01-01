@@ -2,6 +2,7 @@
 <?php
 function drawTriangle(){
 	echo "<p class='excercise'>Draw the triangle</p>";
+	echo "<p class='solution'>Solution:</p>";
 		for ($i=1; $i <= 10 ; $i++) { 
 			echo  " " ;
 			echo "<br/>";
@@ -33,12 +34,16 @@ function drawTriangle(){
 	}
 	function moneySum(){
 		echo "<p class='excercise'>1. Cần có tổng 1.000.000 đồng từ 3 loại tiền 10.000 đồng, 20.000 đồng, 50.000 đồng. Lập chương trình để tìm ra tất cả các phương án có thể</p>";
+		echo "<p class='solution'>Solution:</p>";
+
 	}
 	function currencyBank(){
 		echo "<p class='excercise'>2. Bạn A gửi ngân hàng 20 triệu đồng, lãi suất 0.6%/tháng. Hỏi sau 3 năm, bạn A nhận được cả gốc lẫn lãi là bao nhiêu?</p>";
+		echo "<p class='solution'>Solution:</p>";
 	}
 	function realMath(){
 		echo "<p class='excercise'>3. Bạn B gửi ngân hàng 150 triệu đồng. Lãi suất 0.7%/tháng Cứ 3 tháng bạn B rút 3 triệu đồng, 3 tháng sau rút hơn 3 tháng trước 1 triệu đồng. Hỏi sau 3 năm, bạn B còn lại cả gốc lẫn lãi la bao nhiêu?</p>";
+		echo "<p class='solution'>Solution:</p>";
 	}
 	echo drawTriangle();
 	echo moneySum();
