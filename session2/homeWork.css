@@ -1,5 +1,6 @@
 .triangle{
 	transform: rotate(360deg);
+	text-align: center;
 }
 .excercise{
 	font-size: 20px;
@@ -10,4 +11,9 @@
 	font-size: 20px;
 	text-align: center;
 	color: red;
+	font-weight: bold;
+}
+.details{
+	color: blue;
+	font-style: italic;
 }
