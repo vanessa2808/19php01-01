@@ -3,7 +3,7 @@ body{
 	height: 400px;
 	width: 30%;
 	padding: 40px;
-	background-color: green;
+	background-color: #000099;
 }
 .maleFemale{
 	float: left;
@@ -31,7 +31,7 @@ h1{
 	margin-left: 60px;
 }
 form{
-	background-color: #ada;
+	background-color: #0000FF;
 	height: 470px;
 	width: 100%;
 	margin: 0 auto;
