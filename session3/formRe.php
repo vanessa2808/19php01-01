@@ -67,7 +67,7 @@
 	}
 	?>"><p class="error"><?php echo $errorPhone; ?></p></p>
 
-	 Male <input type="radio" name="gender" value="Male"> Female <input type="radio" name="gender" value="Female"><br>
+	 Male <input class="maleFemale" type="radio" name="gender" value="Male"><input type="radio" name="gender" value="Female">Female<br>
 		<?php if (isset($_POST['gender'])) {
 				echo $_POST['gender'];
 			}
