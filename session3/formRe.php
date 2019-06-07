@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>Form</title>
+	<link rel="stylesheet" type="text/css" href="formRe.css">
 </head>
 <body>
 <h1>Form</h1>
@@ -9,39 +10,38 @@
 	$errorName = $errorDate = $errorEmail = $errorPhone  = $errorGender = $errorAddress = '';
 	if (isset($_POST['register'])){
 		if($_POST['name'] ==''){
-			$errorName = 'please enter';
+			$errorName = 'please enter your name!';
 		} else {
 			$errorName = '';
 		}
 		if($_POST['email'] ==''){
-			$errorEmail = 'please enter';
+			$errorEmail = 'please enter your mail';
 		} else {
 			$errorEmail = '';
 		}
 
 		if($_POST['phone'] ==''){
-			$errorPhone = 'please enter';
+			$errorPhone = 'please enter your phone';
 		} else {
 			$errorPhone = '';
 		}
 
 		if($_POST['gender'] == ''){
-			$errorGender = 'please enter';
+			$errorGender = 'please enter your gender';
 		} else {
 			$errorGender = '';
 		}
 		if($_POST['address'] ==''){
-			$errorAddress = 'please enter';
+			$errorAddress = 'please enter your address';
 		} else {
 			$errorAddress = '';
 		}
 
 		if($_POST['dateOB'] ==''){
-			$errorDate = 'please enter';
+			$errorDate = 'please enter dateOB';
 		} else {
 			$errorDate = '';
 		}
-
 		echo $_POST['name'];
 		echo "<br/>";
 		echo $_POST['email'];
@@ -57,19 +57,33 @@
 		}
 ?>
 <form action="#" name="register-f" method="POST">
-	<p>Name: <input type="text" name="name" value="<?php if(isset($_POST['name'])) {echo $_POST['name'];} ?>"><p class="error"><?php echo $errorName; ?></p></p>
-	<p>Email: <input type="text" name="email"><p class="error"><?php echo $errorEmail; ?></p></p>
-	<p>Phone: <input type="text" name="phone"><p class="error"><?php echo $errorPhone; ?></p></p>
-	<p>Male: <input type="radio" name="gender">
-	<p>Female: <input type="radio" name="gender">
-		<p class="error"><?php echo $errorGender; ?></p></p></p>
-	<p>Address: <select name="address">
+	<p>Name: <input class="box" type="text" name="name"><?php if(isset($_POST['name'])) {echo $_POST['name'];} ?><p class="error"><?php echo $errorName; ?></p></p>
+	<p>Email: <input class="box"  type="text" name="email"><?php if (isset($_POST['email'])) {
+		echo $_POST['email'];
+	}?><p class="error"><?php echo $errorEmail; ?></p></p>
+	<p>Phone: <input class="box" type="text" name="phone"><?php
+	if(isset($_POST['phone'])){
+		echo $_POST['phone'];
+	}
+	?><p class="error"><?php echo $errorPhone; ?></p></p>
+	Gender: <p>Male <input class="maleFemale" type="radio" name="gender">
+	<p>Female <input class="maleFemale" type="radio" name="gender">
+		<?php if (isset($_POST['gender'])) {
+				echo $_POST['gender'];
+			}
+		 ?></p></p><p class="error"><?php echo $errorGender; ?></p>
+	<p>Address: <select class="box1" name="address">
 		<option>QN</option>
 		<option>TTH</option>
-	</select> <p class="error"><?php echo $errorAddress ?></p></p>
-	<p>Date: <input type="date" name="dateOB"><?php echo $errorDate;
+	</select><?php if (isset($_POST['address'])) {
+		# code...
+		echo $_POST['address'];
+	} ?> <p class="error"><?php echo $errorAddress ?></p></p>
+	<p>Date: <input class="box2" type="date" name="dateOB"><?php if (isset($_POST['dateOB'])) {
+		echo $_POST['dateOB'];
+	} ?><?php echo $errorDate;
 	 ?></p>
-	 <p><input type="submit" name="register" value="Register"></p>
+	 <p><input class="submit" type="submit" name="register" value="Register"></p>
 </form>
 </body>
 </html>
