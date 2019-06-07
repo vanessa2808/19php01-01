@@ -57,32 +57,34 @@
 		}
 ?>
 <form action="#" name="register-f" method="POST">
-	<p>Name: <input class="box" type="text" name="name"><?php if(isset($_POST['name'])) {echo $_POST['name'];} ?><p class="error"><?php echo $errorName; ?></p></p>
-	<p>Email: <input class="box"  type="text" name="email"><?php if (isset($_POST['email'])) {
+	<p>Name: <input class="box" type="text" name="name" value="<?php if(isset($_POST['name'])) {echo $_POST['name'];} ?>"><p class="error"><?php echo $errorName; ?></p></p>
+	<p>Email: <input class="box"  type="text" name="email" value="<?php if (isset($_POST['email'])) {
 		echo $_POST['email'];
-	}?><p class="error"><?php echo $errorEmail; ?></p></p>
-	<p>Phone: <input class="box" type="text" name="phone"><?php
+	}?>"><p class="error"><?php echo $errorEmail; ?></p></p>
+	<p>Phone: <input class="box" type="text" name="phone" value="<?php
 	if(isset($_POST['phone'])){
 		echo $_POST['phone'];
 	}
-	?><p class="error"><?php echo $errorPhone; ?></p></p>
-	Gender: <p>Male <input class="maleFemale" type="radio" name="gender">
-	<p>Female <input class="maleFemale" type="radio" name="gender">
+	?>"><p class="error"><?php echo $errorPhone; ?></p></p>
+
+	 Male <input type="radio" name="gender" value="Male"> Female <input type="radio" name="gender" value="Female"><br>
 		<?php if (isset($_POST['gender'])) {
 				echo $_POST['gender'];
 			}
-		 ?></p></p><p class="error"><?php echo $errorGender; ?></p>
+		?>
+		</p></p><p class="error"><?php echo $errorGender; ?></p>
 	<p>Address: <select class="box1" name="address">
-		<option>QN</option>
-		<option>TTH</option>
+		<option>Quang Nam</option>
+		<option>Da Nang</option>
+		<option>Thua Thien Hue</option>
 	</select><?php if (isset($_POST['address'])) {
 		# code...
 		echo $_POST['address'];
 	} ?> <p class="error"><?php echo $errorAddress ?></p></p>
-	<p>Date: <input class="box2" type="date" name="dateOB"><?php if (isset($_POST['dateOB'])) {
+	<p>Date: <input class="box2" type="date" name="dateOB" value="<?php if (isset($_POST['dateOB'])) {
 		echo $_POST['dateOB'];
-	} ?><?php echo $errorDate;
-	 ?></p>
+	} ?>"><p class="error"><?php echo $errorDate;
+	 ?></p></p>
 	 <p><input class="submit" type="submit" name="register" value="Register"></p>
 </form>
 </body>

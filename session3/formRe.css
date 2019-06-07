@@ -32,8 +32,11 @@ h1{
 }
 form{
 	background-color: #2F4F4F;
-	height: 470px;
+	height: 520px;
 	width: 100%;
 	margin: 0 auto;
 	padding: 40px;
+}
+.error{
+	color: red;
 }
