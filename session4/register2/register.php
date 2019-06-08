@@ -139,8 +139,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="register.php"><i class="fa fa-circle-o"></i> Register</a></li>
-            <li class="active"><a href="#"><i class="fa fa-circle-o"></i> List users</a></li>
+            <li class="active"><a href="register.php"><i class="fa fa-circle-o"></i> Register</a></li>
+            <li class="active"><a href="menu.php"><i class="fa fa-circle-o"></i> List users</a></li>
             <li class="active"><a href="#"><i class="fa fa-circle-o"></i> Active users</a></li>
           </ul>
         </li>
@@ -163,7 +163,22 @@
               <li><a href="../UI/modals.html"><i class="fa fa-circle-o"></i> Sport</a></li>
           </ul>
         </li>
-
+         <li class="active treeview menu-open">
+          <a href="#">
+            <i class="fa fa-dashboard"></i> <span>Language</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="#"><i class="fa fa-circle-o"></i> Vietnamese</a></li>
+            <li class="active"><a href="#"><i class="fa fa-circle-o"></i> English</a></li>
+            <li class="active"><a href="#"><i class="fa fa-circle-o"></i> Japanese</a></li>
+            <li class="active"><a href="#"><i class="fa fa-circle-o"></i> Japanese</a></li>
+            <li class="active"><a href="#"><i class="fa fa-circle-o"></i> Canadian</a></li>
+            <li class="active"><a href="#"><i class="fa fa-circle-o"></i> Thailand</a></li>
+          </ul>
+        </li>
           <li class="treeview">
           <a href="#">
             <i class="fa fa-table"></i> <span>Feedback</span>
@@ -220,6 +235,20 @@
               </ul>
             </li>
             <li><a href="#"><i class="fa fa-circle-o"></i> Level One</a></li>
+          </ul>
+        </li>
+
+        <li class="active treeview menu-open">
+          <a href="#">
+            <i class="fa  fa-gear (alias)"></i> <span>Setting</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="register.php"><i class="fa fa-circle-o"></i> Register</a></li>
+            <li class="active"><a href="#"><i class="fa fa-circle-o"></i> List users</a></li>
+            <li class="active"><a href="#"><i class="fa fa-circle-o"></i> Active users</a></li>
           </ul>
         </li>
       </ul>
