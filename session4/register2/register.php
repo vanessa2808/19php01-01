@@ -141,7 +141,85 @@
           <ul class="treeview-menu">
             <li><a href="register.php"><i class="fa fa-circle-o"></i> Register</a></li>
             <li class="active"><a href="#"><i class="fa fa-circle-o"></i> List users</a></li>
-            <li class="active"><a href="#"><i class="fa fa-circle-o"></i> List users</a></li>
+            <li class="active"><a href="#"><i class="fa fa-circle-o"></i> Active users</a></li>
+          </ul>
+        </li>
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-laptop"></i>
+            <span>Menu</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="../UI/general.html"><i class="fa fa-circle-o"></i> Home</a></li>
+            <li><a href="../UI/icons.html"><i class="fa fa-circle-o"></i> News</a></li>
+            <li><a href="../UI/buttons.html"><i class="fa fa-circle-o"></i> About</a></li>
+            <li><a href="../UI/sliders.html"><i class="fa fa-circle-o"></i> Admission</a></li>
+            <li><a href="../UI/timeline.html"><i class="fa fa-circle-o"></i> Academic</a></li>
+            <li><a href="../UI/modals.html"><i class="fa fa-circle-o"></i> Reseach</a></li>
+             <li><a href="../UI/modals.html"><i class="fa fa-circle-o"></i> Collobaration</a></li>
+              <li><a href="../UI/modals.html"><i class="fa fa-circle-o"></i> Sport</a></li>
+          </ul>
+        </li>
+
+          <li class="treeview">
+          <a href="#">
+            <i class="fa fa-table"></i> <span>Feedback</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="../tables/simple.html"><i class="fa fa-circle-o"></i> Positive feedbacks</a></li>
+            <li><a href="../tables/data.html"><i class="fa fa-circle-o"></i> Nagative feedBack</a></li>
+            <li><a href="../tables/data.html"><i class="fa fa-circle-o"></i> Rate star</a></li>
+          </ul>
+        </li>
+
+        <li>
+          <a href="../mailbox/mailbox.html">
+            <i class="fa fa-envelope"></i> <span>Mailbox</span>
+            <span class="pull-right-container">
+              <small class="label pull-right bg-yellow">12</small>
+              <small class="label pull-right bg-green">16</small>
+              <small class="label pull-right bg-red">5</small>
+            </span>
+          </a>
+        </li>
+
+         <li class="treeview">
+          <a href="#">
+            <i class="fa fa-share"></i> <span>Multilevel</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="#"><i class="fa fa-circle-o"></i> Level One</a></li>
+            <li class="treeview">
+              <a href="#"><i class="fa fa-circle-o"></i> Level One
+                <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="#"><i class="fa fa-circle-o"></i> Level Two</a></li>
+                <li class="treeview">
+                  <a href="#"><i class="fa fa-circle-o"></i> Level Two
+                    <span class="pull-right-container">
+                      <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                  </a>
+                  <ul class="treeview-menu">
+                    <li><a href="#"><i class="fa fa-circle-o"></i> Level Three</a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i> Level Three</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li><a href="#"><i class="fa fa-circle-o"></i> Level One</a></li>
           </ul>
         </li>
       </ul>
