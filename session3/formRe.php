@@ -67,13 +67,19 @@
 	}
 	?>"><p class="error"><?php echo $errorPhone; ?></p></p>
 
-	 Male <input class="maleFemale" type="radio" name="gender" value="Male"><input type="radio" name="gender" value="Female">Female<br>
-		<?php if (isset($_POST['gender'])) {
-				echo $_POST['gender'];
+	 Male <input class="maleFemale" type="radio" name="gender" value="male" <?php if (isset($_POST['gender'])) {
+	 		if($_POST['gender'] ==  'Male')
+				echo "check = \"check\"";
 			}
-		?>
+		?>>
+	 <input type="radio" name="gender" value="female" <?php if (isset($_POST['gender'])) {
+	 		if($_POST['gender'] == 'Female')
+				echo "check = \"check\"";
+			}
+		?>>Female<br>
 		</p></p><p class="error"><?php echo $errorGender; ?></p>
 	<p>Address: <select class="box1" name="address">
+		<option></option>
 		<option>Quang Nam</option>
 		<option>Da Nang</option>
 		<option>Thua Thien Hue</option>
