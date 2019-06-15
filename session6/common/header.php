@@ -1,3 +1,4 @@
+<?php ob_start();?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -58,13 +59,13 @@
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="../yen.jpg" class="user-image" alt="User Image">
+              <img src="yen.jpg" class="user-image" alt="User Image">
               <span class="hidden-xs">Vanessa</span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
-                <img src="../yen.jpg" class="img-circle" alt="User Image">
+                <img src="yen.jpg" class="img-circle" alt="User Image">
 
                 <p>
                   Vanessa Nguyen - Web Developer
@@ -110,7 +111,7 @@
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="../yen.jpg" class="img-circle" alt="User Image">
+          <img src="yen.jpg" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
           <p>Vanessa Nguyen</p>
@@ -142,7 +143,7 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="register.php"><i class="fa fa-circle-o"></i> Register</a></li>
-            <li class="active"><a href="#"><i class="fa fa-circle-o"></i> List users</a></li>
+            <li class="active"><a href="list_user.php"><i class="fa fa-circle-o"></i> List users</a></li>
           </ul>
         </li>
         <li class="active treeview menu-open">
@@ -269,167 +270,4 @@
     <!-- /.sidebar -->
   </aside>
 
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <h1>
-        Rigister form
-        <small>Give for user</small>
-      </h1>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Dashboard</li>
-      </ol>
-    </section>
-    <?php 
-      $errClassName = $errClassEmail = $errClassPhone = $errClassAvatar = $errClassGender = $errClassCity = $errClassDay = '';
-      $errTextName = $errTextEmail = $errTextPhone = $errTextAvatar= $errTextGender = $errTextCity = $errTextDay = '';
-      $name = $email = $phone = $avatar = $gender = $city = $dayOfBirth = '';
-      if (isset($_POST['register'])) {
-        $name  = $_POST['name'];
-        $email = $_POST['email'];
-        $phone = $_POST['phone'];
-        $gender = $_POST['gender'];
-        $city = $_POST['city'];
-        $dayOfBirth = $_POST['dayOfBirth'];
-        if ($name == '') {
-          $errClassName = 'has-error';
-          $errTextName = 'Please input your name';
-        }
-        if($email == '') {
-          $errClassEmail = 'has-error';
-          $errTextEmail = 'Please input your email';
-        }
-        if($phone == '') {
-          $errClassPhone = 'has-error';
-          $errTextPhone = 'Please input your phone';
-        }
-         if($dayOfBirth == '') {
-          $errClassDay = 'has-error';
-          $errTextDay = 'Please input your date of birth';
-        }
-        if($avatar == '') {
-          $errClassAvatar = 'has-error';
-          $errTextAvatar = 'Please input your avatar';
-        }
-        if($gender == '') {
-          $errClassGender = 'has-error';
-          $errTextGender = 'Please input your gender';
-        }
-        if($city == '') {
-          $errClassCity = 'has-error';
-          $errTextCity = 'Please input your city';
-        }
-      }
-    ?>
-    <!-- Main content -->
-    <section class="content">
-      <div class="row">
-        <!-- left column -->
-        <div class="col-md-6">
-          <!-- general form elements -->
-          <div class="box box-primary">
-            <div class="box-header with-border">
-              <h3 class="box-title">Register form</h3>
-            </div>
-            <!-- /.box-header -->
-            <!-- form start -->
-            <form role="form" action="#" method="POST" enctype="multipart/form-data">
-              <div class="box-body">
-                <div class="form-group <?php echo $errClassName;?>">
-                  <label for="exampleInputEmail1">Name</label>
-                  <input type="text" class="form-control" id="exampleInputName" placeholder="Enter name" name="name" value="<?php echo $name;?>">
-                  <span class="help-block"><?php echo $errTextName;?></span>
-                </div>
-                <div class="form-group <?php echo $errClassEmail;?>">
-                  <label for="exampleInputEmail1">Email</label>
-                  <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter email" name="email" value="<?php echo $email;?>">
-                    <span class="help-block"><?php echo $errTextEmail;?></span>
-                </div>
-                <div class="form-group <?php echo $errClassPhone;?>">
-                  <label for="exampleInputEmail1">Phone</label>
-                  <input type="text" class="form-control" id="exampleInputPhone" placeholder="Enter phone" name="phone" value="<?php echo $phone;?>">
-                   <span class="help-block"><?php echo $errTextPhone;?></span>
-                </div>
-                 <div class="form-group <?php echo $errClassDay?>">
-                <div class="input-group">
-                  <div class="input-group-addon">
-                    <i class="fa fa-calendar"></i>
-                  </div>
-                  <input type="date" name="dayOfBirth" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask value="<?php echo $dayOfBirth ?>">
-                </div>
-              <span class="help-block"><?php echo $errTextDay;?></span>
-              </div>
-                <div class="form-group <?php echo $errClassAvatar ?>">
-                  <label for="exampleInputFile">Avatar</label>
-                  <input type="file" id="exampleInputFile" class="form-control" name="avatar" value="<?php echo $avatar; ?>">
-                  <span class="help-block"><?php echo $errTextAvatar;?></span>
-                </div>
-                <!-- radio -->
-                <div class="form-group <?php echo $errClassGender ?>">
-                  <label>
-                    <input value="male" type="radio" name="gender" class="minimal" <?php echo $gender == 'male' ? 'checked' : ''?>>Male
-                  </label>
-                  <label>
-                    <input value="female" type="radio" name="gender" class="minimal"<?php echo $gender == 'female' ? 'checked':''?>>Female
-                  </label>
-                  <label>
-                    <input value="other" type="radio" name="gender" class="minimal" <?php echo $gender == 'other' ? 'checked':''?>>Other
-                  </label>
-                  <span class="help-block"><?php echo $errTextGender;?></span>
-                </div>
-              <div class="form-group <?php echo $errClassCity ?> ">
-                <label>City</label>
-                <select class="form-control select2" style="width: 100%;" name="city">
-                  <option value="" >Choose city</option>
-                  <option value="alaska" <?php echo $city == 'alaska' ? 'selected' : '' ?> >Alaska</option>
-                  <option value="california" <?php echo $city == 'california' ? 'selected' : '' ?>>California</option>
-                  <option value="delaware" <?php echo $city == 'delaware' ? 'selected' : '' ?>>Delaware</option>
-                </select>
-                <span class="help-block"><?php echo $errTextCity;?></span>
-              </div>
-              <!-- /.box-body -->
-
-              <div class="box-footer">
-                <input type="hidden" name="register" value="1">
-                <button type="submit" class="btn btn-primary">Submit</button>
-              </div>
-            </form>
-          </div>
-          <!-- /.box -->
-        </div>
-      </div>
-    </section>
-    <!-- /.content -->
-  </div>
-  <!-- /.content-wrapper -->
-
-  <footer class="main-footer">
-    <div class="pull-right hidden-xs">
-      <b>Version</b> 2.4.0
-    </div>
-    <strong>Copyright &copy; 19php01 <a href="#">SDC</a>.</strong> All rights
-    reserved.
-  </footer>
-
-</div>
-<!-- ./wrapper -->
-
-<!-- jQuery 3 -->
-<script src="js/jquery.min.js"></script>
-<!-- Bootstrap 3.3.7 -->
-<script src="js/bootstrap.min.js"></script>
-<!-- FastClick -->
-<script src="js/fastclick.js"></script>
-<!-- AdminLTE App -->
-<script src="js/adminlte.min.js"></script>
-<!-- Sparkline -->
-<script src="js/jquery.sparkline.min.js"></script>
-<!-- jvectormap  -->
-<script src="js/jquery-jvectormap-1.2.2.min.js"></script>
-<script src="js/jquery-jvectormap-world-mill-en.js"></script>
-<!-- SlimScroll -->
-<script src="js/jquery.slimscroll.min.js"></script>
-</body>
-</html>
+  

@@ -19,6 +19,7 @@
 		$database = 'quanlidancu';
 
 		$connect = mysqli_connect($server, $username, $password, $database);
+		mysqli_set_charset($connect, 'UTF8');
 		if ($connect === FALSE) {
 			echo "connect fail ". mysqli_connect_error();
 		}
