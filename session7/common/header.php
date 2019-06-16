@@ -156,7 +156,7 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="add_product.php"><i class="fa fa-circle-o"></i> Add product</a></li>
-            <li class="active"><a href="#"><i class="fa fa-circle-o"></i> List products</a></li>
+            <li class="active"><a href="list_product.php"><i class="fa fa-circle-o"></i> List products</a></li>
           </ul>
         </li>
         <li class="treeview">
