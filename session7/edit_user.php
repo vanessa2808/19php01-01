@@ -22,7 +22,7 @@
     <!-- Main content -->
     <section class="content">
 <div class="form">
-<h1>Edit the product</h1>
+<h1>Edit the users</h1>
   <?php 
       include 'connect.php';
       // lay thong tin cu cua user can edit
@@ -87,9 +87,6 @@
 
         
 <div>
-<form name="form" method="POST" action=""> 
-    <input type="hidden" name="new" value="1" />
-    <input name="id" type="hidden" value="<?php echo $row['id'];?>" />
     <form role="form" action="#" method="POST" enctype="multipart/form-data">
       <div class="box-body">
         <div class="form-group <?php echo $errClassName;?>">
@@ -133,13 +130,13 @@
         <!-- radio -->
         <div class="form-group <?php echo $errClassGender ?> value = <?php echo $row['avatar']  ?>">
           <label>
-            <input value="male" type="radio" name="gender"   class="minimal" <?php echo $gender == 'male' ? 'checked' : ''?>>Male
+            <input value="male" type="radio" name="gender"   class="minimal" <?php echo $row['gender'] == 'male' ? 'checked' : ''?>>Male
           </label>
           <label>
-            <input value="female" type="radio" name="gender" class="minimal"<?php echo $gender == 'female' ? 'checked':''?>>Female
+            <input value="female" type="radio" name="gender" class="minimal"<?php echo $row['gender'] == 'female' ? 'checked':''?>>Female
           </label>
           <label>
-            <input value="other" type="radio" name="gender" class="minimal" <?php echo $gender == 'other' ? 'checked':''?>>Other
+            <input value="other" type="radio" name="gender" class="minimal" <?php echo $row['gender'] == 'other' ? 'checked':''?>>Other
           </label>
           <span class="help-block"><?php echo $errTextGender;?></span>
         </div>
@@ -147,9 +144,9 @@
         <label>City</label>
         <select class="form-control select2" style="width: 100%;" name="city">
           <option value="" >Choose city</option>
-          <option value="alaska" <?php echo $city == 'alaska' ? 'selected' : '' ?>>Alaska</option>
-          <option value="california" <?php echo $city == 'california' ? 'selected' : '' ?>>California</option>
-          <option value="delaware" <?php echo $city == 'delaware' ? 'selected' : '' ?>>Delaware</option>
+          <option value="alaska" <?php echo $row['city'] == 'alaska' ? 'selected' : '' ?>>Alaska</option>
+          <option value="california" <?php echo $row['city'] == 'california' ? 'selected' : '' ?>>California</option>
+          <option value="delaware" <?php echo $row['city'] == 'delaware' ? 'selected' : '' ?>>Delaware</option>
         </select>
         <span class="help-block"><?php echo $errTextCity;?></span>
       </div>

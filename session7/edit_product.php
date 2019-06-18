@@ -1,24 +1,40 @@
-<?php include 'common/header.php';?>
-  <!-- Content Wrapper. Contains page content -->
+<?php include 'common/header.php';   ?>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Edit the product</title>
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Dashboard
+        Edit the product
         <small>Version 2.0</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Dashboard</li>
+        <li class="active">Edit the product</li>
       </ol>
     </section>
-    <?php 
+    <!-- Main content -->
+    <section class="content">
+<div class="form">
+<h1>Edit the product</h1>
+  <?php 
       include 'connect.php';
+      // lay thong tin cu cua user can edit
+      $id = $_GET['id'];
+      $sql = "SELECT * FROM products WHERE id = $id";
+      $editProduct = mysqli_query($connect, $sql);
+      $row = $editProduct->fetch_assoc();
       $errClassNameProduct = $errClassPriceProduct = $errClassDescriptedProduct = $errClassImage = $errClassDay = '';
       $errTextNameProduct = $errTextPriceProduct = $errTextDescriptedProduct = $errTextImage = $errTextDay = '';
       $nameProduct = $priceProduct = $description = $imageDe = $datePro = '';
-      if(isset($_POST['addPro'])){
-        $nameProduct = $_POST['nameProduct'];
+      if (isset($_POST['editProduct'])) {
+        $nameProduct  = $_POST['nameProduct'];
         $priceProduct = $_POST['priceProduct'];
         $description = $_POST['description'];
         $datePro = $_POST['datePro'];
@@ -49,7 +65,7 @@
             $imageDe = uniqid().'_'.$_FILES['imageDe']['name'];
             move_uploaded_file($_FILES['imageDe']['tmp_name'], 'uploads/products/'.$imageDe);
           }
-           $sql = "INSERT INTO products(nameProduct, priceProduct, description, imageDe, datePro) VALUES ('$nameProduct', '$priceProduct', '$description', '$imageDe', '$datePro')";
+           $sql = "UPDATE products SET nameProduct = '$nameProduct', priceProduct = '$priceProduct', description = '$description', imageDe = '$imageDe', datePro = '$datePro' WHERE id = '$id'";
           if(mysqli_query($connect, $sql) === TRUE){
             header("Location: list_product.php");
           }
@@ -59,9 +75,8 @@
 
 
      ?>
-    <!-- Main content -->
-    <section class="content">
-	    <div class="row">
+     <section class="content">
+      <div class="row">
        <div class="col-md-12">
          <div class="box box-primary">
            <div class="box-header with-border">
@@ -72,27 +87,27 @@
               <!-- Input name of product -->
                 <div class="form-group <?php echo $errClassNameProduct;?>">
                   <label for="exampleInputEmail1">Name of Product</label>
-                  <input type="text" class="form-control" id="exampleInputNameProduct" placeholder="Enter name of product" name="nameProduct" value="<?php echo $nameProduct;?>">
+                  <input type="text" class="form-control" id="exampleInputNameProduct" placeholder="Enter name of product" name="nameProduct"  required value="<?php echo $row['nameProduct'];?>">
                   <span class="help-block"><?php echo $errTextNameProduct;?></span>
                 </div>
                 <!-- input price of product -->
                 <div class="form-group <?php echo $errClassPriceProduct;?>">
                   <label for="exampleInputEmail1">Product of Product</label>
-                  <input type="text" class="form-control" id="exampleInputPriceProduct" placeholder="Enter price of product" name="priceProduct" value="<?php echo $priceProduct;?>">
+                  <input type="text" class="form-control" id="exampleInputPriceProduct" placeholder="Enter price of product" name="priceProduct" value="<?php echo $row['priceProduct'];?>">
                   <span class="help-block"><?php echo $errTextPriceProduct;?></span>
                 </div>
                 <!-- input the description -->
 
                  <div class="form-group <?php echo $errClassDescriptedProduct;?>">
                   <label for="exampleInputEmail1">Description</label>
-                  <textarea type="text" class="form-control boxDescription" id="exampleInputDecriptedProduct" placeholder="Enter description of product" name="description" height=700px  value="<?php echo $description;?>"></textarea>
+                  <input type="text" class="form-control boxDescription" id="exampleInputDecriptedProduct" placeholder="Enter description of product" name="description" height=700px  value="<?php echo $row['description'];?>">
                   <span class="help-block"><?php echo $errTextDescriptedProduct;?></span>
                 </div>
 
                 <!-- Image -->
                  <div class="form-group <?php echo $errClassImage ?>">
                   <label for="exampleInputFile">Image</label>
-                  <input type="file" id="exampleInputFile" class="form-control" name="imageDe" value="<?php echo $imageDe ?>">
+                  <input type="file" id="exampleInputFile" class="form-control" name="imageDe" value="<?php echo $row['imageDe'] ?>">
                   <span class="help-block"><?php echo $errTextImage;?></span>
                 </div>
                 <!-- date -->
@@ -103,7 +118,7 @@
                   <div class="input-group-addon">
                     <i class="fa fa-calendar"></i>
                   </div>
-                  <input type="text" name="datePro" value="<?php echo $datePro  ?>" class="form-control pull-right" id="birthday">
+                  <input type="text" name="datePro" value="<?php echo $row['datePro']  ?>" class="form-control pull-right" id="birthday">
                 </div>
                 <span class="help-block"><?php echo $errTextDay;?></span>
                 <!-- /.input group -->
@@ -112,7 +127,7 @@
 
 
               <div class="box-footer">
-                <button type="submit" class="btn btn-primary" name="addPro">Add product</button>
+                <button type="submit" class="btn btn-primary" name="editProduct">update product</button>
               </div>
            </form>
          </div>
@@ -120,7 +135,13 @@
       </div>
     </section>
     <!-- /.content -->
-  </div>
+ 
   <!-- /.content-wrapper -->
 
+
+
+  
+
   <?php include 'common/footer.php';?>
+  </body>
+  </html>
