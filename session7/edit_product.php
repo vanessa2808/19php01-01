@@ -68,6 +68,7 @@
            $sql = "UPDATE products SET nameProduct = '$nameProduct', priceProduct = '$priceProduct', description = '$description', imageDe = '$imageDe', datePro = '$datePro' WHERE id = '$id'";
           if(mysqli_query($connect, $sql) === TRUE){
             header("Location: list_product.php");
+            
           }
 
         }
