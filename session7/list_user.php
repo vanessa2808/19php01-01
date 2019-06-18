@@ -50,7 +50,7 @@
 	                  <td>
 	                    <?php echo $row['email']?>
 	                  </td>
-	                  <td><button><a href="edit_user.php?id=<?php echo $id ?>"> Edit </a></button> <button><a href="delete_user.php?id=<?php echo $id?>">Delete</a></button></td>
+	                  <td><button class="green"><a href="edit_user.php?id=<?php echo $id ?>"> Edit </a></button> <button class="red"><a href="delete_user.php?id=<?php echo $id?>">Delete</a></button></td>
                     <td><?php echo $row['phone']?></td>
                      <td><?php echo $row['gender']?></td>
                      <td><img src="uploads/avatar/<?php echo $row['avatar']?>" alt="avatar" class="avatar_user"></td>

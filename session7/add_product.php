@@ -85,7 +85,7 @@
 
                  <div class="form-group <?php echo $errClassDescriptedProduct;?>">
                   <label for="exampleInputEmail1">Description</label>
-                  <textarea type="text" class="form-control boxDescription" id="exampleInputDecriptedProduct" placeholder="Enter description of product" name="description" height=700px  value="<?php echo $description;?>"></textarea>
+                  <textarea type="text" class="form-control boxDescription" id="exampleInputDecriptedProduct" placeholder="Enter description of product" name="description"  value="<?php echo $description;?>"></textarea>
                   <span class="help-block"><?php echo $errTextDescriptedProduct;?></span>
                 </div>
 

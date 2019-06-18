@@ -53,7 +53,7 @@
                     <td><?php echo $row['description']?></td>
                     <td><img src="uploads/products/<?php echo $row['imageDe']?>" alt="image" class="avatar_user"></td>
                       <td><?php  echo $row['datePro']; ?></td>
-                    <td><button><a href="edit_product.php?id=<?php echo $id ?>"> Edit </a></button> <button><a href="delete_product.php?id=<?php echo $id?>">Delete</a></button></td>
+                    <td><button class="green"><a href="edit_product.php?id=<?php echo $id ?>"> Edit </a></button> <button class="red"><a href="delete_product.php?id=<?php echo $id?>">Delete</a></button></td>
                   </tr>
                   <?php 
                 }
