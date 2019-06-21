@@ -3,8 +3,7 @@
     <div class="pull-right hidden-xs">
       <b>Version</b> 2.4.0
     </div>
-    <strong>Copyright &copy; 19php01 <a href="#">SDC</a>.</strong> All rights
-    reserved.
+    <strong>Nguyen Thi Hong Yen ------  </strong> Vanessa Nguyen
   </footer>
 
 </div>
