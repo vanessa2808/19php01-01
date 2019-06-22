@@ -1,0 +1,18 @@
+img.avatar_user {
+	width: 80px;
+}
+#exampleInputDecriptedProduct{
+	height: 200px;
+}
+.green{
+	background-color: blue;
+	color: white;
+	border-radius: 30px;
+	width: 70px;
+}
+.red{
+	background-color: red;
+	color: white;
+	border-radius: 30px;
+	width: 70px;
+}
