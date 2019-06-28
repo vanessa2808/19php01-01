@@ -1,0 +1,169 @@
+    
+/* Position the image container (needed to position the left and right arrows) */
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+.container{
+  position: relative;
+}
+/* Next & previous buttons */
+.prev, .next {
+  position: absolute;
+  top: 40%;
+  width: auto;
+  padding: 10px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 0 10px 10px 0;
+  background: black;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 10px 0 0 10px;
+}
+
+.menu{
+  margin-top: 15px;
+}
+body{
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  
+}
+nav{
+  width: 100%;
+} ul{
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+}
+ul li{
+  list-style: none;
+  display: inline-block;
+  padding: 20px;
+  font-size:20px;
+}
+ul li:hover{
+  background: #e91e63;
+  color: #FFAAA6;
+}
+ul li a{
+  color: #FFAAA6;
+  text-decoration: none;
+}
+.form{
+  color: #FFAAA6;
+  height: 20px;
+  padding-top: 5px;
+  border-radius: 5px;
+  border-color: #FFAAA6;
+  text-align: right;
+  margin-left: 10px;
+
+}
+.toggle{
+  width: 100%;
+  height: 80px;
+  padding: 10px 20px;
+  background: #FF8C94;
+  text-align: right;
+  box-sizing: border-box;
+  color: #fff;
+  font-size: 30px;
+  display: none;
+}
+.mainToobar{
+  width: 100%;
+  height: 100px;
+  padding: 10px 20px;
+  background: #FF8C94;
+  box-sizing: border-box;
+  color: #fff;
+  font-size: 60px;
+  float: left;
+}
+.button1{
+  height: 60px;
+  width: 100px;
+  margin-left: 200px;
+  list-style-type: none;
+}
+.button1, .button2{
+  height: 60px;
+  width: 100px;
+  border-radius: 10px;
+  border-color: #FF8C94;
+  background-color: none;
+  color: white;
+  list-style-type: none;
+  font-size: 30px;
+  float: left;
+  margin-top: -30px;
+}
+#leaf{
+  padding-left: 400px;
+}
+.logo{
+  margin-top: 0px;
+  font-size: 30px;
+  float: left;
+  font-size: 50px;
+}
+span{
+  color: #e91e63;
+}
+
+select{
+  height: 35px;
+  width: 140px;
+  border-radius: 40px;
+  border-color: #FF8C94;
+  background-color: white;
+  color: #FF8C94;
+  list-style-type: none;
+  margin-left: 40px;
+  font-size: 25px;
+  margin-top: -30px;
+  float: left;
+}
+footer{
+  width: 100%;
+  height: 300px;
+  background-color: #FFAAA6;
+}
+@media(max-width: 1000px){
+  .mainToobar{
+    display: none;
+  }
+  .form{
+   display: none;
+  }
+}
+@media(max-width: 768px){
+  .toggle{
+    display: block;
+  }
+  ul{
+    width: 100%;
+    display: none;
+  }
+  ul li{
+    display: block;
+    text-align: center;
+  }
+  .active{
+    display: block;
+  }
+  .mainToobar{
+    display: none;
+  }
+  .form{
+    display: none;
+  }
+}

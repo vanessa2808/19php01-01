@@ -129,7 +129,8 @@
                  <div class="form-group <?php echo $errClassImage ?>">
                   <label for="exampleInputFile">Image</label>
                   <input type="file" id="exampleInputFile" class="form-control" name="imageDe" value="<?php echo $row['imageDe'] ?>">
-                  <span class="help-block"><?php echo $errTextImage;?></span>
+                  <img src="uploads/products/<?php echo $imageDe?>" alt ="image">
+                   <span class="help-block"><?php echo $errTextImage;?></span>
                 </div>
                 <!-- date -->
               <div class="form-group">
