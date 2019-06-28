@@ -13,6 +13,7 @@
   $query = "SELECT * FROM products limit $start_from,$number_per_page";
   $result = mysqli_query($connect, $query);
 ?>
+ 
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -28,6 +29,18 @@
     </section>
     <!-- Main content -->
     <section class="content">
+       <?php
+        include 'connect.php';
+        $sql = "SELECT * FROM products";
+        $result1 = mysqli_query($connect, $sql);
+        $inputName = '';
+        if (isset($_POST['search'])) {
+          $inputName = $_POST['inputName'];
+          $sql = "SELECT * FROM products WHERE name LIKE '%$inputName%'";
+          $result1 = mysqli_query($connect, $sql);
+          var_dump($sql);
+        }
+      ?>
 	     <div class="row">
         <div class="col-md-12">
           <div class="box">
@@ -60,34 +73,18 @@
                   <th>Created</th>
                   <th>Action</th>
                 </tr>
-                <tbody>
-                  <?php  
-                    include 'connect.php';
-                    if(isset($_POST['search'])){
-                      $name = $_POST['inputName'];
-                      $description = $_POST['inputDescription'];
-                      $price = $_POST['inputPrice'];
-                      $created = $_POST['inputCreated'];
-                      if($inputName != '' || $inputDescription != ''|| $inputPrice != '' || $inputCreated != ''){
-                        $query_fi = "SELECT * FROM products WHERE name ='$inputName' OR description = '$inputDescription' OR price = '$inputPrice' AND created = '$inputCreated'";
-                        $data = mysqli_query($connect,$query_fi) ;
-                      }
-                    }
-
-                  ?>
-
-
-                </tbody>
                 <tr>
                   <th style="width: 10px"> </th>
-                  <th><input type="text" name="inputName"></th>
+                  <th></th>
+                  <th><input type="text" name="inputName" value="<?php echo $inputName; ?>"></th>
                   <th><input type="text" name="inputDescription"></th>
                   <th><input type="text" name="inputPrice"></th>
-                  <th><input type="text" name="inputCreated"></th>
                    <th></th>
-                    <th></th>
+                  <th><input type="text" name="inputCreated"></th>
+
+              
                     
-                  <th><button class="btn btn-block btn-primary" name="search"> search </button></th>
+                  <th><button type="submit" name="search">Search</button></th>
                 </tr>
                <?php 
                if ($result->num_rows > 0) {
