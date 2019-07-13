@@ -20,7 +20,7 @@
       <td>
         <?php echo $row['price']?>
       </td>
-      <td><img src="uploads/news/<?php echo $row['image']?>" alt="image" class="avatar_user"></td>
+      <td><img src="uploads/products/<?php echo $row['image']?>" alt="image" class="avatar_user"></td>
        <td><?php echo $row['created']?></td>
       <td><a href="index.php?action=edit_product&id=<?php echo $id?>">Edit</a> | <a href="index.php?action=delete_product&id=<?php echo $id?>">Delete</a></td>
     </tr>
