@@ -58,6 +58,11 @@
 						$description = $_POST['description'];
 						$price = $_POST['price'];
 						$image = 'default.jpg';
+						if ($_FILES['image']['error'] == 0) {
+						  $image = uniqid().'_'.$_FILES['image']['name'];
+						  move_uploaded_file($_FILES['image']['tmp_name'], 'uploads/products/'.$image);
+						  // Xoa anh cu neu chon anh moi (tru truong hop a cu la anh default)
+						}
 						$created = date('Y-m-d h:i:s');
 						// save vao database
 						if ($model->addProduct($name, $description, $price, $image, $created) === TRUE) {
@@ -88,6 +93,11 @@
 						$title = $_POST['title'];
 						$description = $_POST['description'];
 						$avatar = 'default.jpg';
+						if ($_FILES['avatar']['error'] == 0) {
+						  $avatar = uniqid().'_'.$_FILES['avatar']['name'];
+						  move_uploaded_file($_FILES['avatar']['tmp_name'], 'uploads/news/'.$avatar);
+						  // Xoa anh cu neu chon anh moi (tru truong hop a cu la anh default)
+						}
 						$created = date('Y-m-d h:i:s');
 						// save vao database
 						if ($model->addNews($title, $description,$avatar, $created) === TRUE) {
