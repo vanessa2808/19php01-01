@@ -63,7 +63,7 @@
 
                     </td>
                     
-                    <td><img src="uploads/<?php echo $row['avatar']?>" alt="image" class="avatar_user"></td>
+                    <td><img src="uploads/news/<?php echo $row['avatar']?>" alt="image" class="avatar_user"></td>
                      <td><?php echo $row['created']?></td>
                     <td><a href="index.php?action=edit_news&id=<?php echo $id?>">Edit</a> | <a href="index.php?action=delete_news&id=<?php echo $id?>">Delete</a></td>
                   </tr>
