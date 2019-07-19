@@ -34,5 +34,5 @@
 </div>
 <!--header end here-->
 </div>
-<script src="jquery.min.js"></script>
+<script src="js/jquery.min.js"></script>
 <!--footer end here-->
