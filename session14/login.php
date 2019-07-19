@@ -9,8 +9,8 @@
 					<div class="header-left-bottom agileinfo">
 						
 					 <form action="admin.php?controller=user&action=login" method="post">
-						<input type="text"  value="User name" name="username">
-					<input type="password"  value="Password" name="password">
+						<input type="text"  placeholder="User name" name="username">
+					<input type="password"  placeholder="password" name="password">
 						<div class="remember">
 			             <span class="checkbox1">
 							   <label class="checkbox"><input type="checkbox" name="" checked=""><i> </i>Remember me</label>
