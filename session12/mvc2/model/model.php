@@ -63,8 +63,9 @@
 			return mysqli_query($this->connect(), $sql);
 		}
 
-		public function addNews($title, $description, $image, $created) {
+		public function addNews($title, $description, $avatar, $created) {
 			$sql = "INSERT INTO news (title, description, avatar, created) VALUES ('$title', '$description', '$avatar', '$created')";
+			var_dump($sql);
 			return mysqli_query($this->connect(), $sql);
 		}
 		public function getNews($id) {
@@ -73,8 +74,8 @@
 			return $result->fetch_assoc();
 		}
 
-		public function editNews($id, $title, $description) {
-			$sql = "UPDATE products SET title = '$title', description = '$description' WHERE id = $id";
+		public function editNews($id, $title, $description, $avatar) {
+			$sql = "UPDATE news SET title = '$title', description = '$description' WHERE id = $id";
 			return mysqli_query($this->connect(), $sql);
 		}
 

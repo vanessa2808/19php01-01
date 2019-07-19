@@ -1,11 +1,11 @@
-<h1>Products page here</h1>
+<h1>news page here</h1>
 <a href="index.php?action=add_news">Add news</a>
 <table class="table table-bordered">
   <tr>
     <th style="width: 10px">#</th>
     <th>Title</th>
     <th>Description</th>
-    <th>Image</th>
+    <th>avatar</th>
     <th>Created</th>
     <th>Action</th>
   </tr>
@@ -15,7 +15,7 @@
  		$id = $row['id'];
  ?>
     <tr>
-      <td><?php echo $row['id']?></td>
+      <td><?php  echo $row['id']?></td>
       <td><?php echo $row['title']?></td>
       <td>
         <?php echo $row['description']?>
@@ -32,3 +32,6 @@
   </tr>
   <?php }?>
 </table>
+
+
+

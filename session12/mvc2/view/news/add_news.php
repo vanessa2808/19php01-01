@@ -1,5 +1,8 @@
 <h1>Add news page</h1>
-<form action="index.php?action=add_news" method="post" enctype="multipart/form-data">
+<?php
+
+?>
+<form action="index.php?action=add_news" method="post" enctype= multipart/form-data>
 	<p>Title: 
 		<input type="text" name="title">
 	</p>

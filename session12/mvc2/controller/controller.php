@@ -84,15 +84,13 @@
 						include 'view/products/edit_product.php';
 						break;	
 				case 'add_news':
-					# code...
-					// check xem da submit add product chua?
 					if (isset($_POST['add_news_form'])) {
 						$title = $_POST['title'];
 						$description = $_POST['description'];
 						$avatar = 'default.jpg';
 						$created = date('Y-m-d h:i:s');
 						// save vao database
-						if ($model->addNews($title, $description, $avatar,  $created) === TRUE) {
+						if ($model->addNews($title, $description,$avatar, $created) === TRUE) {
 							$functionCommon->redirectPage('index.php?action=news');
 						}
 					}
@@ -114,7 +112,16 @@
 						}
 						}
 						include 'view/news/edit_news.php';
-						break;	
+						break;
+				case 'delete_news':
+				   // lay id cua san pham can xoa
+					$id = $_GET['id'];
+					// goi model thuc hien xoa san pham
+					if ($model->deleteNews($id) === TRUE) {
+						//header("Location: "index.php?action=products);
+						$functionCommon->redirectPage('index.php?action=news');
+					}
+					break;	
 				default:
 					# code...
 					break;
