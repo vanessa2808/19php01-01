@@ -9,8 +9,8 @@
 			return $listUser;
 		}
 		// users
-		function addUser($username, $password) {
-			$sql = "INSERT INTO users(username, password) VALUES ('$username', '$password')";
+		function addUser($username, $password, $avatar) {
+			$sql = "INSERT INTO users(username, password, avatar) VALUES ('$username', '$password','$avatar')";
 			return mysqli_query($this->connect(), $sql);
 		}
 

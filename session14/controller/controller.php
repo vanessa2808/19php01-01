@@ -49,7 +49,7 @@
          				 }
 						}
 
-						if($model->addUser($username, $password) === TRUE){
+						if($model->addUser($username, $password, $avatar) === TRUE){
 							header("Location: admin.php?controller=user&action=list_user");
 						}
 						# code...
