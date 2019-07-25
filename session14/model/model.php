@@ -78,6 +78,21 @@
 			$sql = "UPDATE news SET title ='$title', description = '$description ', image = '$image' WHERE id= $id";
 			return mysqli_query($this->connect(), $sql);
 		}
+		public function getProductCategories($id){
+			$sql = "SELECT * FROM product_categories WHERE id = $id";
+			$result = mysqli_query($this->connect(),$sql);
+			return $result->fetch_assoc() ;
+		}
+		public function addProductCategories($productName){
+			$sql = "INSERT INTO product_categories(productName) VALUES ('$productName')";
+			return mysqli_query($this->connect(), $sql);
+		}
+		public function listProductCategories(){
+			$sql = "SELECT * FROM product_categories";
+			$listProductCategories = mysqli_query($this->connect(),$sql);
+			return $listProductCategories;
+		}
+		
 
 	}
 ?>

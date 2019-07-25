@@ -23,6 +23,9 @@
 				case 'product':
 					$this->handleProduct($action, $model);
 					break;
+				case 'product_categories':
+					$this->handleProductCategories($action, $model);
+					break;
 				
 				default:
 					# code...
@@ -209,6 +212,7 @@
 						
 						if($model->addProduct($productName, $description, $price, $image,$created) === TRUE){
 							header("Location: admin.php?controller=product&action=list_product");
+				
 						}
 						# code...
 					}
@@ -248,7 +252,38 @@
 					$this->checkLoginSession();
 					# code...
 					$listProduct = $model->listProduct();
+
 					include 'view/product/list_product.php';
+					include 'index.php';
+					break;
+				default:
+					# code...
+					break;
+			}
+		}
+		// product categories
+		function handleProductCategories($action, $model){
+			switch ($action) {
+				case 'add_product_categories':
+					$this->checkLoginSession();
+					# code...
+					if (isset($_POST['add_product_categories'])) {
+						$productName = $_POST['productName'];
+						
+						if($model->addProductCategories($productName) === TRUE){
+							header("Location: admin.php?controller=product_categories&action=list_product_categories");
+						}
+						# code...
+					}
+					include 'view/product_categories/product_categories.php';
+					break;
+			
+				case 'list_product_categories':
+					$this->checkLoginSession();
+					# code...
+					$listProductCategories = $model->listProductCategories();
+
+					include 'view/product_categories/listProduct_categories.php';
 					break;
 				default:
 					# code...
@@ -263,4 +298,4 @@
 
 		
 	}
-?>
+	?>

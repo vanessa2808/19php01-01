@@ -155,6 +155,18 @@
             <li class="active"><a href="admin.php?controller=product&action=list_product"><i class="fa fa-circle-o"></i> List products</a></li>
           </ul>
         </li>
+        <li class="active treeview menu-open">
+          <a href="#">
+            <i class="fa fa-shopping-cart"></i> <span>Product categories</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="admin.php?controller=product_categories&action=add_product_categories"><i class="fa fa-circle-o"></i> Add product categories</a></li>
+            <li class="active"><a href="admin.php?controller=product_categories&action=list_product_categories"><i class="fa fa-circle-o"></i> List product categories</a></li>
+          </ul>
+        </li>
         <li class="treeview">
           <a href="#">
             <i class="fa fa-laptop"></i>

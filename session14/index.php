@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -74,16 +75,8 @@
     </div>
   </header><!-- #header -->
 
-  <!--==========================
-    Hero Section
-  ============================-->
-  <section id="hero">
-    <div class="hero-container">
-      <h1>Welcome to Regna</h1>
-      <h2>We will provide a lot of modern tech-devices with reasonable price </h2>
-      <a href="#about" class="btn-get-started">Get Started</a>
-    </div>
-  </section><!-- #hero -->
+ 
+ 
 
   <main id="main">
 
