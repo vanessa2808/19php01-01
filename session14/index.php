@@ -96,13 +96,7 @@
     </div>
   </footer>
 
-  <main id="main">
-  
-
-<a href="index.php?controller=product&action=product_detail&id=1">Detail sp1</a>
-<a href="index.php?controller=product&action=product_detail&id=2">Detail sp2</a>
-<a href="index.php?controller=product&action=product_detail&id=3">Detail sp3</a>
-</main>
+ 
 
   <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
 
