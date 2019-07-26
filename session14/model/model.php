@@ -78,6 +78,7 @@
 			$sql = "UPDATE news SET title ='$title', description = '$description ', image = '$image' WHERE id= $id";
 			return mysqli_query($this->connect(), $sql);
 		}
+		// list product in the index
 		public function getProductCategories($id){
 			$sql = "SELECT * FROM product_categories WHERE id = $id";
 			$result = mysqli_query($this->connect(),$sql);
@@ -92,6 +93,17 @@
 			$listProductCategories = mysqli_query($this->connect(),$sql);
 			return $listProductCategories;
 		}
+		public function deleteProductCategories($id){
+			$sql = "DELETE FROM product_categories WHERE id= $id";
+			return mysqli_query($this->connect(),$sql);
+		}
+		public function getProductDetail($id, $description){
+			$productDetail = $description. $id;
+			return $productDetail;
+		}
+		// list product in the index
+
+		
 		
 
 	}

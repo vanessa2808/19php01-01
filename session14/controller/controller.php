@@ -256,6 +256,13 @@
 					include 'view/product/list_product.php';
 					include 'index.php';
 					break;
+				case 'product_detail':
+					$id = $_GET['id'];
+					// goi model xu ly du lieu
+					$productDetail = $model->getProductDetail($id, $description);
+					// goi view products
+					include 'view/product/product_detail.php';
+					break;
 				default:
 					# code...
 					break;
@@ -285,6 +292,11 @@
 
 					include 'view/product_categories/listProduct_categories.php';
 					break;
+				case 'delete_product_categories':
+					$id = $_GET['id'];
+					if($model->deleteProductCategories($id)===TRUE){
+					header("Location: admin.php?controller=product_categories&action=list_product_categories");
+				}
 				default:
 					# code...
 					break;
@@ -295,6 +307,7 @@
 				header("Location: admin.php?controller=user&action=login");
 			}
 		}
+
 
 		
 	}

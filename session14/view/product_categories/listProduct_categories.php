@@ -27,6 +27,7 @@
                 <tr>
     <th style="width: 10px">#</th>
     <th>productName: </th>
+    <th>Action:</th>
     
   </tr>
  <?php 
@@ -37,6 +38,7 @@
     <tr>
       <td><?php echo $row['id']?></td>
       <td><?php echo $row['productName']?></td>
+      <td><a href="#">Edit</a> | <a href="admin.php?controller=product_categories&action=delete_product_categories&id=<?php echo $id;  ?>">Delete</a></td>
     </tr>
   <?php 
   	}
