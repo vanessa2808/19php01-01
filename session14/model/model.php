@@ -102,7 +102,11 @@
 			return $productDetail;
 		}
 		// list product in the index
-
+		public function listProductPage(){
+			$sql = "SELECT * FROM products";
+			$listProductPage = mysqli_query($this->connect(),$sql);
+			return $listProductPage;
+		}
 		
 		
 

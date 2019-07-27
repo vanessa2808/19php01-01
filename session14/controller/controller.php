@@ -26,6 +26,9 @@
 				case 'product_categories':
 					$this->handleProductCategories($action, $model);
 					break;
+				case 'list_product_page':
+					$this->handleListProductPage($action, $model);
+					break;
 				
 				default:
 					# code...
@@ -306,6 +309,35 @@
 			if (!isset($_SESSION['login'])) {
 				header("Location: admin.php?controller=user&action=login");
 			}
+		}
+		function handleListProductPage($action, $model){
+			switch ($action) {
+				case 'add_product_categories':
+					$this->checkLoginSession();
+					# code...
+					if (isset($_POST['add_product_categories'])) {
+						$productName = $_POST['productName'];
+						
+						if($model->addProductCategories($productName) === TRUE){
+							header("Location: admin.php?controller=list_product_page&action=list_product_page");
+						}
+						# code...
+					}
+					include 'view/product_categories/product_categories.php';
+					break;
+				case 'list_product_page':
+					$this->checkLoginSession();
+					# code...
+					$listProductPage = $model->listProductPage();
+
+					include 'index.php';
+					break;
+				default:
+					# code...
+					break;
+			}
+			
+
 		}
 
 
