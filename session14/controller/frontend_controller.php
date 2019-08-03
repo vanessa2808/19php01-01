@@ -1,8 +1,8 @@
 <?php 
-	include 'model/model_product.php';
+	include 'model/model.php';
 	class FrontendController {
 		function handleRequestFrontend() {
-			$model_product = new model_product();
+			$model = new Model();
 			$controller = isset($_GET['controller'])?$_GET['controller']:'home_page';
 			$action = isset($_GET['action'])?$_GET['action']:'index';
 			echo "ProductPage";
@@ -11,6 +11,8 @@
 					
 					break;
 				case 'product':
+				$listProduct = $model->getProduct();
+				
 					$this->handleProduct($action, $model);
 					break;
 				default:
@@ -21,16 +23,14 @@
 		}
 		function handleProduct($action, $model){
 			switch ($action) {
-				case 'list_product':
-					$this->checkLoginSession();
-					# code...
-					$listPage = $model_product->listPage();
-
-					include 'index.php';
+				case 'add_product':
+					include_once('view/product/addProductPage.php');
 					break;
-				
-				default:
-					# code...
+				case 'list_product':
+					include_once('view/product/listProductPage.php');
+					break;
+				case 'edit_product':
+					include_once('view/product/editProductPage.php');
 					break;
 			}
 		}

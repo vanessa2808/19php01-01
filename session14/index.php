@@ -102,7 +102,9 @@
 	include 'controller/frontend_controller.php';
 	$frontend_controller = new FrontendController();
 	$frontend_controller->handleRequestFrontend();
+
 ?>
+
 </main>
 
   <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
