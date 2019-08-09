@@ -1,0 +1,23 @@
+nav ul li {
+	list-style-type: none;
+	float: left;
+	width: 100px;
+	border: 1px solid black;
+	padding: 5px 10px;
+	margin: 10px;
+	text-align: center;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+nav {
+	height: 30px;
+}
+a {
+	text-decoration: none;
+}
+.login_account {
+	width: 220px;
+}
+.error {
+	color: red;
+}
