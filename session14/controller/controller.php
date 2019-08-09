@@ -43,7 +43,7 @@
 					# code...
 					if (isset($_POST['add_user'])) {
 						$username = $_POST['username'];
-						$password = md5($_POST['password']);
+						$password = ($_POST['password']);
 						$avatar = 'default.jpg';
 						if ($_FILES['avatar']['error'] == 0) {
 							$oldImage = $avatar;
@@ -101,13 +101,13 @@
 					# code...
 					if (isset($_POST['login'])) {
 						$username = $_POST['username'];
-						$password = md5($_POST['password']);
+						$password = ($_POST['password']);
 						$checkLogin = $model->checkLogin($username, $password);
 						if($checkLogin->num_rows > 0){
 							$_SESSION['login'] = $username;
 							header("Location: admin.php?controller=user&action=list_user");
 						} else {
-							header("Location: login.php");
+							header("Location: admin.php?controller=user&action=login");
 						}
 						# code...
 					}
@@ -115,7 +115,7 @@
 					break;
 				case 'logout':
 					unset($_SESSION['login']);
-					header("Location:login.php");
+					header("Location:admin.php?controller=user&action=logout");
 					break;
 				default:
 					# code...
