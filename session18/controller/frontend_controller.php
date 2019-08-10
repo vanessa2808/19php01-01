@@ -79,7 +79,62 @@
 				}
 		}
 		function handleProduct($action) {
-
+			switch ($action) {
+				case 'add_product':
+					# code...
+					break;
+				case 'list_product':
+					$this->checkLoginSession();
+					$model = new FrontendModel();
+					$listProduct =  $model->listProduct();
+					include 'view/products/list_product_page.php';
+					break;
+				case 'product_detail':
+					$product_id = $_GET['product_id'];
+					$this->checkLoginSession();
+					$model = new FrontendModel();
+					$productDetail = $model->productDetail($product_id);
+					include 'view/products/product_details.php';
+					break;
+				case 'add_comment':
+					$this->checkLoginSession();
+					# code...
+					if (isset($_POST['add_comment'])) {
+						$id = $_GET['id'];
+						$user_id = $_GET['user_id'];
+						$product_id = $_GET['product_id'];
+						$content = $_POST['content'];	
+						$created = date('Y-m-d h:i:s');
+						$status = 0;
+						$model = new FrontendModel();				
+						if($model->addComment($user_id, $product_id, $content, $created, $status) === TRUE){
+							header("Location: index.php?controller=product&action=list_comment&user_id=<?php echo $user_id ?>&id=<?php echo $id   ?> &product_id=<?php echo $product_id ?>");
+				
+						}
+						# code...
+					}
+					include 'view/products/comment.php';
+					
+					break;
+				case 'list_comment':
+				
+				$id = $_GET['id'];
+				$user_id = $_GET['user_id'];
+				$product_id = $_GET['product_id'];
+				$this->checkLoginSession();
+					$model = new FrontendModel();
+					$listComment =  $model->listComment($id, $user_id, $product_id);
+					include 'view/products/product_comment.php';
+					break;
+				default:
+					# code...
+					break;
+			}
+		}
+		function checkLoginSession() {
+			if (!isset($_SESSION['login'])) {
+				header("Location: admin.php?controller=user&action=login");
+			}
 		}
 	}
 ?>

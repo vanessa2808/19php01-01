@@ -19,22 +19,22 @@
 			$listUser = mysqli_query($this->connect(), $sql);
 			return $listUser;
 		}
-		public function getUser($id) {
-			$sql = "SELECT * FROM users WHERE id = $id";
+		public function getUser($user_id) {
+			$sql = "SELECT * FROM users WHERE user_id = $user_id";
 			$result = mysqli_query($this->connect(), $sql);
 			return $result->fetch_assoc();
 		}
-		public function deleteUser($id){
-			$sql = "DELETE FROM users WHERE id = $id";
+		public function deleteUser($user_id){
+			$sql = "DELETE FROM users WHERE user_id = $user_id";
 			return mysqli_query($this->connect(),$sql);
 		}
-		public function editUser($id, $username, $password, $avatar){
-			$sql = "UPDATE users SET username = '$username', password = '$password',avatar = '$avatar' WHERE id = $id";
+		public function editUser($user_id, $username, $password, $avatar){
+			$sql = "UPDATE users SET username = '$username', password = '$password',avatar = '$avatar' WHERE user_id = $user_id";
 			return mysqli_query($this->connect(),$sql);
 		}
 		// products
 		public function addProduct($product_category_id, $name, $description,  $image,$price,$created){
-			$sql = "INSERT INTO products(product_category_id, name, description,image, price, created) VALUES ('$product_category_id', '$name', $description', '$image', $price','$created')";
+			$sql = "INSERT INTO products(product_category_id, name, description,image, price, created) VALUES ('$product_category_id', '$name', '$description', '$image', '$price','$created')";
 			return mysqli_query($this->connect(),$sql);
 		}
 		public function listProduct(){
@@ -42,17 +42,17 @@
 			$listProduct = mysqli_query($this->connect(),$sql);
 			return $listProduct;
 		}
-		public function getProduct($id){
-			$sql = "SELECT * FROM products WHERE id = $id";
+		public function getProduct($product_id){
+			$sql = "SELECT * FROM products WHERE product_id = $product_id";
 			$result = mysqli_query($this->connect(),$sql);
 			return $result->fetch_assoc();
 		}
-		public function deleteProduct($id){
-			$sql = "DELETE FROM products WHERE id= $id";
+		public function deleteProduct($product_id){
+			$sql = "DELETE FROM products WHERE product_id= $product_id";
 			return mysqli_query($this->connect(),$sql);
 		}
-		public function editProduct($id, $product_category_id, $name, $description,$image, $price){
-			$sql = "UPDATE products SET product_category_id ='$product_category_id', name = '$name' , description = '$description',  image = '$image', price ='$price' WHERE id= $id";
+		public function editProduct($product_id, $product_category_id, $name, $description,$image, $price){
+			$sql = "UPDATE products SET product_category_id ='$product_category_id', name = '$name' , description = '$description',  image = '$image', price ='$price' WHERE product_id= $product_id";
 			return mysqli_query($this->connect(), $sql);
 		}
 		// news

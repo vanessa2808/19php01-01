@@ -1,5 +1,4 @@
 
-<?php include 'common/header.php';   ?>
 <?php  
     $errTextTitle  = $errTextDescription = $errTextImage =''; 
      if (isset($_POST['add_news'])) {
@@ -66,4 +65,3 @@
 
   </body>
   </html>
-    <?php include 'common/footer.php';?>

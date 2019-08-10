@@ -37,10 +37,10 @@
  <?php 
  if ($listProduct->num_rows > 0) {
  	while($row = $listProduct->fetch_assoc()) {
- 		$id = $row['id'];
+ 		$product_id = $row['product_id'];
  ?>
     <tr>
-      <td><?php echo $row['id']?></td>
+      <td><?php echo $row['product_id']?></td>
       <td><?php echo $row['product_category_id']?></td>
       <td><?php echo $row['name'];  ?></td>
        <td><?php echo $row['description'];  ?></td>
@@ -50,7 +50,7 @@
         </td>
      
       <td><?php echo $row['created'];  ?></td>
-      <td><a href="admin.php?controller=product&action=edit_product&id=<?php echo $id ?>">Edit</a> | <a href="admin.php?controller=product&action=delete_product&id=<?php echo $id;  ?>">Delete</a></td>
+      <td><a href="admin.php?controller=product&action=edit_product&product_id=<?php echo $product_id ?>">Edit</a> | <a href="admin.php?controller=product&action=delete_product&product_id=<?php echo $product_id;  ?>">Delete</a></td>
     </tr>
   <?php 
   	}

@@ -2,8 +2,8 @@
 <link rel="stylesheet" type="text/css" href="webroot/css/style.css">
 
  <?php 
- if ($productDetail->num_rows > 0) {
- 	while($row = $productDetail->fetch_assoc()) {
+ if ($listProduct->num_rows > 0) {
+ 	while($row = $listProduct->fetch_assoc()) {
  		$product_id = $row['product_id'];
  ?>
       <p><br/></p>
@@ -14,18 +14,13 @@
        <p>
          <?php echo number_format($row['price'],3). '  VND'; ?>
         </p>
-        <p><?php echo $row['price'];  ?></p>
-         <p><?php echo $row['description'];  ?></p>
      
  
-      <p><a href="index.php?controller=product&action=buyProduct&product_id=<?php echo $product_id ?>">BUY</a> </p>
-      
+      <p><a href="index.php?controller=product&action=product_detail&product_id=<?php echo $product_id ?>">View Product Details</a> </p>
 
   <?php 
   	}
   } else {?>
   
   <?php }?>
-  <?php  include 'View/products/comment.php'; ?>
-
-   
+</table>

@@ -26,7 +26,7 @@
 <div class="form">
 <h1>Edit the products</h1>     
 <div>
-  <form action="admin.php?controller=product&action=edit_product&id=<?php echo $id ?>" method="POST" enctype="multipart/form-data">
+  <form action="admin.php?controller=product&action=edit_product&product_id=<?php echo $product_id ?>" method="POST" enctype="multipart/form-data">
     <div class="box-body">
         <div class="form-group <?php echo $errClassProductCategoryId;?>">
           <label for="exampleInputEmail1">Product Name: </label>
@@ -37,7 +37,7 @@
       <div class="box-body">
         <div class="form-group <?php echo $errClassProductName;?>">
           <label for="exampleInputEmail1">Product Name: </label>
-          <input type="text" class="form-control" id="exampleInputName" placeholder="Enter name"  name="name" required value="<?php echo $editProduct['productName']  ?>">
+          <input type="text" class="form-control" id="exampleInputName" placeholder="Enter name"  name="name" required value="<?php echo $editProduct['name']  ?>">
           <span class="help-block"><?php echo $errTextProductName;?></span>
         </div>
         <div class="form-group <?php echo $errClassDescription;?>">

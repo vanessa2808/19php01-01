@@ -1,4 +1,4 @@
-<?php include 'common/header.php';?>
+
 <link rel="stylesheet" type="text/css" href="webroot/css/style.css">
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -53,4 +53,3 @@
   </tr>
   <?php }?>
 </table>
-  <?php include 'common/footer.php';?>

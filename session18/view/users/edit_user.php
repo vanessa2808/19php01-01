@@ -1,4 +1,4 @@
-<?php include 'common/header.php';   ?>
+
 <?php  
     $errTextName  = $errTextPass = $errTextAvatar =''; 
 ?>
@@ -27,7 +27,7 @@
 <div class="form">
 <h1>Edit the users</h1>     
 <div>
-  <form action="admin.php?controller=user&action=edit_user&id=<?php echo $id?>" method="post" enctype="multipart/form-data" >
+  <form action="admin.php?controller=user&action=edit_user&user_id=<?php echo $user_id?>" method="post" enctype="multipart/form-data" >
       <div class="box-body">
         <div class="form-group <?php echo $errClassName;?>">
           <label for="exampleInputEmail1">name user: </label>
@@ -59,4 +59,3 @@
 
   </body>
   </html>
-    <?php include 'common/footer.php';?>

@@ -14,7 +14,7 @@
 		<ul>
 			<li><a href="index.php?controller=home&action=home">Home</a></li>
 			<li><a href="">News</a></li>
-			<li><a href="">Products</a></li>
+			<li><a href="index.php?controller=product&action=list_product">Products</a></li>
 			<?php if(isset($_SESSION['login'])){?>
 				<li class="login_account">Hi, <?php echo $_SESSION['login'];?><a href="index.php?controller=user&action=logout"> Logout</a></li>
 				<li><a href="admin.php?controller=user&action=list_user">Manage</a></li>

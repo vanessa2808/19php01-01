@@ -1,3 +1,4 @@
+<?php ob_start(); ?>
 <?php
  include 'view/elements/header.php';
  include 'controller/controller.php';

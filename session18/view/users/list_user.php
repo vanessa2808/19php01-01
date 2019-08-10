@@ -20,10 +20,10 @@
  <?php 
  if ($listUser->num_rows > 0) {
  	while($row = $listUser->fetch_assoc()) {
- 		$id = $row['id'];
+ 		$id = $row['user_id'];
  ?>
     <tr>
-      <td><?php echo $row['id']?></td>
+      <td><?php echo $row['user_id']?></td>
       <td><?php echo $row['username']?></td>
        <td><img src="uploads/<?php echo $row['avatar']?>" alt="image" class="avatar_user"></td>
       <td><a href="admin.php?controller=user&action=edit_user&id=<?php echo $id ?>">Edit</a> | <a href="admin.php?controller=user&action=delete_user&id=<?php echo $id;  ?>">Delete</a></td>

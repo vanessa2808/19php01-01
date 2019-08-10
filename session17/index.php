@@ -2,6 +2,7 @@
   ob_start();
   session_start(); 
 ?>
+<?php include 'controller/frontend_controller.php';  ?>
 <!DOCTYPE html>
 <html>
 <head>
