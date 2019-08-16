@@ -31,7 +31,7 @@
         <li class="active">Add the product</li>
       </ol>
     </section>
-    <!-- Main content -->
+    <!-- Main content --> 
     <section class="content">
 <div class="form">
 <h1>Add the products</h1>     

@@ -14,6 +14,9 @@
 				case 'product':
 					$this->handleProduct($action);
 					break;
+				case 'comment':
+					$this->handleComment($action);
+					break;
 				default:
 					# code...
 					break;
@@ -43,10 +46,13 @@
 							$model = new FrontendModel();
 							$errorExistUser = '';
 							$checkExistUser = $model->checkExistUser($username, $email);
+							// check exist username or email
 							if ($checkExistUser->num_rows == 0) {
 								if ($model->register($role, $username, $password, $name, $email, $phone, $birthday, $avatar) === TRUE) {
 									// Dang nhap luon, sau khi dang ky thanh cong
-									$_SESSION['login'] = $username;
+									$login['username'] = $username;
+									$login['role'] = $role;
+									$_SESSION['login'] = $login;
 									header("Location: index.php");
 								}
 							} else {
@@ -63,7 +69,10 @@
 							$model = new FrontendModel();
 							$checkogin = $model->login($username, $password);
 							if ($checkogin->num_rows > 0) {
-								$_SESSION['login'] = $username;
+								$checkogin = $checkogin->fetch_assoc();
+								$login['username'] = $username;
+								$login['role'] = $checkogin['role'];
+								$_SESSION['login'] = $login;
 								header("Location: index.php");
 							}
 						}
@@ -80,59 +89,64 @@
 		}
 		function handleProduct($action) {
 			switch ($action) {
-				case 'add_product':
-					# code...
-					break;
 				case 'list_product':
-					$this->checkLoginSession();
+					# code...
 					$model = new FrontendModel();
-					$listProduct =  $model->listProduct();
-					include 'view/products/list_product_page.php';
+					$listProduct = $model->getListProduct();
+					include 'view/products/list_product_frontend.php';
 					break;
 				case 'product_detail':
 					$id = $_GET['id'];
-					$this->checkLoginSession();
 					$model = new FrontendModel();
-					$productDetail = $model->productDetail($id);
-					include 'view/products/product_details.php';
-					break;
-				case 'add_comment':
-					$this->checkLoginSession();
+					$productDetail = $model->getProductDetail($id);
+					$productDetail = $productDetail->fetch_assoc();
+					$commentList = $model->getCommentList($id);
+					include 'view/products/product_detail_frontend.php';
 					# code...
-					if (isset($_POST['add_comment'])) {
-						$id = $_GET['id'];
-						
-						$content = $_POST['content'];	
-						$created = date('Y-m-d h:i:s');
-						$status = 0;
-						$model = new FrontendModel();				
-						if($model->addComment($id, $id, $content, $created, $status) === TRUE){
-							header("Location: index.php?controller=product&action=list_comment&id=<?php echo $id ?>&id=<?php echo $id   ?> &id=<?php echo $id ?>");
-				
-						}
-						# code...
-					}
-					include 'view/products/comment.php';
-					
 					break;
-				case 'list_comment':
-				
-				$id = $_GET['id'];
-				$id = $_GET['id'];
-				$id = $_GET['id'];
-				$this->checkLoginSession();
-					$model = new FrontendModel();
-					$listComment =  $model->listComment($id, $id, $id);
-					include 'view/products/product_comment.php';
-					break;
+
 				default:
 					# code...
 					break;
 			}
 		}
-		function checkLoginSession() {
-			if (!isset($_SESSION['login'])) {
-				header("Location: admin.php?controller=user&action=login");
+
+		function handleComment($action) {
+			switch ($action) {
+				case 'add_comment':
+					if (isset($_POST['comment'])) {
+						if (isset($_SESSION['login'])) {
+							$content = $_POST['content'];
+							$product_id = $_POST['product_id'];
+							$model = new FrontendModel();
+							$users = $model->getUserID($_SESSION['login']['username']);
+							$user_id = $users->fetch_assoc();
+							$user_id = $user_id['id'];
+							if ($model->addComment($product_id, $user_id, $content) === TRUE) {
+								header("Location:index.php?controller=product&action=product_detail&id=$product_id");
+							}
+						} else {
+							header("Location: index.php?controller=users&action=login");
+						}
+					}
+					break;
+				case 'list_comment':
+					# code...
+					$model = new FrontendModel();
+					$commentList = $model->getCommentList($id);
+					include 'view/products/list_product_frontend.php';
+					break;
+				case 'delete_comment':
+					$id = $_GET['id'];
+					$model = new FrontendModel();
+					if($model->deleteComment($id)===TRUE){
+					header("Location: admin.php?controller=comment&action=list_comment");
+				}
+					# code...
+					break;
+				default:
+					# code...
+					break;
 			}
 		}
 	}

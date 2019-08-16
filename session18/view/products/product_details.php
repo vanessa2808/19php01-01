@@ -4,7 +4,7 @@
  <?php 
  if ($productDetail->num_rows > 0) {
  	while($row = $productDetail->fetch_assoc()) {
- 		$product_id = $row['product_id'];
+ 		$id = $row['id'];
  ?>
       <p><br/></p>
       <p><br/></p>
@@ -18,7 +18,7 @@
          <p><?php echo $row['description'];  ?></p>
      
  
-      <p><a href="index.php?controller=product&action=buyProduct&product_id=<?php echo $product_id ?>">BUY</a> </p>
+      <p><a href="index.php?controller=product&action=buyProduct&id=<?php echo $id ?>">BUY</a> </p>
       
 
   <?php 

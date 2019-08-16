@@ -224,8 +224,8 @@
 					include 'view/products/add_product.php';
 					break;
 				case 'edit_product':
-					$product_id = $_GET['product_id'];
-						$editProduct =$model->getProduct($product_id);
+					$id = $_GET['id'];
+						$editProduct =$model->getProduct($id);
 						// edit
 						if (isset($_POST['edit_form_product'])) {
 							$product_category_id = $_POST['product_category_id'];
@@ -250,8 +250,8 @@
 						include 'view/products/edit_product.php';
 						break;	
 				case 'delete_product':
-					$product_id = $_GET['product_id'];
-					if($model->deleteProduct($product_id)===TRUE){
+					$id = $_GET['id'];
+					if($model->deleteProduct($id)===TRUE){
 					header("Location: admin.php?controller=product&action=list_product");
 					break;
 				}

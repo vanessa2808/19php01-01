@@ -1,19 +1,58 @@
 <?php 
-	include 'config/database.php';
+include 'config/database.php';
+class BackendModel extends DatabaseConnect {
+// Check login session
+	public function getListUser() {
+		$sql = "SELECT * FROM users";
+		return mysqli_query($this->connect(), $sql);
+	}
+	function register($role, $username, $password, $name, $email, $phone, $birthday, $avatar) {
+		$created = date('Y-m-d h:i:s');
+		$sql = "INSERT INTO users(role, username, password, name, email, phone, birthday, avatar, created) VALUES ('$role', '$username', '$password', '$name', '$email', '$phone', '$birthday', '$avatar', '$created')";
+		return mysqli_query($this->connect(), $sql);
+	}
+	// CATAGORY
+	public function addProductCategory($name) {
+		$sql = "INSERT INTO product_categories(name) VALUES('$name')";
+		return mysqli_query($this->connect(), $sql);	
+	}
+	public function getCategory() {
+		$sql = "SELECT * FROM product_categories";
+		return mysqli_query($this->connect(), $sql);
+	}
+	// view/PRODUCT
+	public function addProduct($name, $price, $description, $product_category_id, $image) {
+		$created = date('Y-m-d h:i:s');
+		$sql = "INSERT INTO products(name, price, description, product_category_id, image, created) VALUES('$name', '$price', '$description', $product_category_id, '$image', '$created')";
+		return mysqli_query($this->connect(), $sql);
+	}
 
-	class Model extends DatabaseConnect {
-		// Check login
-		public function checkLogin($username, $password) {
-			$sql = "SELECT * FROM users WHERE username = '$username' AND password = '$password'";
-			$listUser = mysqli_query($this->connect(), $sql);
-			return $listUser;
+	public function getListProduct() {
+		$sql = "SELECT products.id,
+		 products.name,
+		 products.price,
+		 products.image,
+		 product_categories.name as product_category_name
+		 FROM products 
+		 INNER JOIN product_categories ON products.product_category_id = product_categories.id
+		 ";
+		return mysqli_query($this->connect(), $sql);
+	}
+		
+	public function getProduct($id){
+			$sql = "SELECT * FROM products WHERE id = $id";
+			$result = mysqli_query($this->connect(),$sql);
+			return $result->fetch_assoc();
 		}
-		// users
-		function addUser($username, $password, $avatar) {
-			$sql = "INSERT INTO users(username, password, avatar) VALUES ('$username', '$password','$avatar')";
+		public function deleteProduct($id){
+			$sql = "DELETE FROM products WHERE id= $id";
+			return mysqli_query($this->connect(),$sql);
+		}
+		public function editProduct($id, $name, $description,$price, $image){
+			$sql = "UPDATE products SET name = '$name' , description = '$description',  price = '$price', image ='$image' WHERE id= $id";
 			return mysqli_query($this->connect(), $sql);
 		}
-
+		// view/USERS
 		public function listUser() {
 			$sql = "SELECT * FROM users";
 			$listUser = mysqli_query($this->connect(), $sql);
@@ -28,33 +67,14 @@
 			$sql = "DELETE FROM users WHERE id = $id";
 			return mysqli_query($this->connect(),$sql);
 		}
-		public function editUser($id, $username, $password, $avatar){
-			$sql = "UPDATE users SET username = '$username', password = '$password',avatar = '$avatar' WHERE id = $id";
+		public function editUser($id,$role, $username, $password, $name, $email, $phone, $birthday, $avatar){
+			$sql = "UPDATE users SET role = '$role', username='$username', password = '$password',name = '$name', email = '$email', phone = '$phone', birthday = '$birthday', avatar = '$avatar'  WHERE id = $id";
 			return mysqli_query($this->connect(),$sql);
 		}
-		// products
-		public function addProduct($product_category_id, $name, $description,  $image,$price,$created){
-			$sql = "INSERT INTO products(product_category_id, name, description,image, price, created) VALUES ('$product_category_id', '$name', '$description', '$image', '$price','$created')";
-			return mysqli_query($this->connect(),$sql);
-		}
-		public function listProduct(){
-			$sql = "SELECT * FROM products";
-			$listProduct = mysqli_query($this->connect(),$sql);
-			return $listProduct;
-		}
-		public function getProduct($id){
-			$sql = "SELECT * FROM products WHERE id = $id";
-			$result = mysqli_query($this->connect(),$sql);
-			return $result->fetch_assoc();
-		}
-		public function deleteProduct($id){
-			$sql = "DELETE FROM products WHERE id= $id";
-			return mysqli_query($this->connect(),$sql);
-		}
-		public function editProduct($id, $product_category_id, $name, $description,$image, $price){
-			$sql = "UPDATE products SET product_category_id ='$product_category_id', name = '$name' , description = '$description',  image = '$image', price ='$price' WHERE id= $product_id";
-			return mysqli_query($this->connect(), $sql);
-		}
+	
+		
+		
+		
 		// news
 		public function addNews($title, $description, $image, $created){
 			$sql = "INSERT INTO news(title, description, image, created) VALUES ('$title','$description','$image','$created')";
@@ -101,6 +121,8 @@
 			$productDetail = $description. $id;
 			return $productDetail;
 		}
+
+		
 		// list product in the index
 		public function listProductPage(){
 			$sql = "SELECT * FROM products";

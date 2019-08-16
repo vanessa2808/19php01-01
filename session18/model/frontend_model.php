@@ -47,25 +47,24 @@ class FrontendModel extends DatabaseConnect {
 		$productDetail = mysqli_query($this->connect(), $sql);
 		return $productDetail;
 	}
-		public function addComment($user_id, $product_id, $content,  $created, $status){
-			$sql = "INSERT INTO comments(user_id, product_id, content, created, status) VALUES ('$user_id', '$product_id', '$content', '$created', '$status')";
+		public function addComment($id, $content,  $created, $status){
+			$sql = "INSERT INTO comments(id, content, created, status) VALUES ('$id', '$content', '$created', '$status')";
 			return mysqli_query($this->connect(),$sql);
 	}
-	public function listComment($id, $user_id, $product_id){
-		$listComment = 'Comment of product' . $id. $user_id. $product_id;
+	public function listComment($id){
 		$sql = "SELECT * FROM comments, products,users";
 		$listComment = mysqli_query($this->connect(),$sql);
 		return $listComment;
 	}
 
-	public function getUser($user_id){
-		$sql = "SELECT * FROM comments WHERE user_id = $user_id";
+	public function getUser($id){
+		$sql = "SELECT * FROM comments WHERE id = $id";
 		$result = mysqli_query($this->connect(),$sql);
 		return $result->fetch_assoc();
 	}
 
-	public function getProductID($product_id){
-		$sql = "SELECT * FROM comments WHERE product_id = $product_id";
+	public function getProductID($id){
+		$sql = "SELECT * FROM comments WHERE id = $id";
 		$result = mysqli_query($this->connect(),$sql);
 		return $result->fetch_assoc();
 	}
