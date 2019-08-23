@@ -44,7 +44,7 @@
       <td><?php echo $row['product_category_id']?></td>
       <td><?php echo $row['name'];  ?></td>
        <td><?php echo $row['description'];  ?></td>
-         <td><img src="webroot/uploads/users<?php echo $row['image']?>" alt="image" class="avatar_user"></td>
+         <td><img style="height: 300px;" src="webroot/uploads/users<?php echo $row['image']?>" alt="image" class="avatar_user"></td>
        <td>
          <?php echo number_format($row['price'],3). '  VND'; ?>
         </td>

@@ -1,4 +1,4 @@
-<?php ob_start(); ?>
+<?php session_start(); ?>
 <?php
 include 'view/elements/header.php';
 include 'controller/backend_controller.php';
@@ -32,7 +32,7 @@ include 'controller/backend_controller.php';
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <img src="webroot/img/user2-160x160.jpg" class="user-image"
                                  alt="User Image">
-                            <span class="hidden-xs"><?php echo $_SESSION['username'] ?></span>
+                            <span class="hidden-xs"><p>Hi <?php echo $_SESSION['login']['username'];?></span>
                         </a>
                         <ul class="dropdown-menu">
                             <!-- User image -->
