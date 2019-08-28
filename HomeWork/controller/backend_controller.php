@@ -21,6 +21,10 @@
 				case 'new':
 					$this->handleNew($action);
 					break;
+				case 'order':
+					$this->handleOrder($action);
+					# code...
+					break;
 				default:
 					# code...
 					break;
@@ -235,6 +239,7 @@
 							header("Location: admin.php?controller=user&action=login");
 						}
 					}
+					include 'view/products/product_detail_frontend.php';
 					break;
 				case 'list_comment':
 					# code...
@@ -334,5 +339,53 @@
 				break;
 		}
 	}
+	function handleOrder($action){
+			switch ($action) {
+				case 'buy':
+					if(isset($_POST['buy'])){
+					if (isset($_SESSION['login'])) {
+						$user_id = $users->fetch_assoc();
+						$user_id = $user_id['id'];
+						$model = new BackendModel();
+						if($model->addOrder($user_id) === TRUE) {
+							header("Location: index.php?controller=order&action=buy&id=$user_id");
+						} 
+					} else {
+						header("Location: index.php");
+					}
+				}
+					break;
+				case 'list_order':
+					# code...
+					$model = new BackendModel();
+					$listOrder = $model->listOrder();
+					include 'view/shopping/list_order.php';
+					break;
+
+				case 'approve_order':
+						$id = $_GET['id'];
+						$model = new BackendModel();
+						if ($model->approveOrder($id) === TRUE) {
+							header("Location: admin.php?controller=order&action=list_order");
+						}
+						# code...
+						break;
+				case 'delete_comment':
+					$id = $_GET['id'];
+					$model = new BackendModel();
+					if($model->deleteOrder($id)===TRUE){
+					header("Location: admin.php?controller=order&action=list_order");
+				}
+					break;
+				case 'list_order_detail':
+						$model = new BackendModel();
+					$listOrderDetail = $model->listOrderDetail();
+					include 'view/shopping/list_order_details.php';
+					break;
+				default:
+					# code...
+					break;
+			}
+		}
 }
 ?>

@@ -1,4 +1,4 @@
-<h1>Register page</h1>
+
 
 <p class="error"><?php 
 	$errorExistUser = '';

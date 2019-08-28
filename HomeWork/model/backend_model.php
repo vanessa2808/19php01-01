@@ -181,7 +181,56 @@ class BackendModel extends DatabaseConnect {
 			$sql = "UPDATE product_categories SET name ='$name' WHERE id= $id";
 			return mysqli_query($this->connect(), $sql);
 		}
+			// order
+		public function addOrder($user_id){
+			$created = date('Y-m-d h:i:s');
+			$sql = "INSERT INTO orders(user_id, created, status) VALUES ('$user_id','$created','$status')";
 		
+			return mysqli_query($this->connect(),$sql);
+
+		}
+		public function listOrder(){
+			$sql = "SELECT users.id as user_id
+			 FROM orders
+			 INNER JOIN  users ON users.id = orders.user_id";
+			$listOrder = mysqli_query($this->connect(),$sql);
+			return $listOrder;
+		}
+		public function getOrder($id){
+			$sql = "SELECT * FROM orders WHERE id = $id";
+			$result = mysqli_query($this->connect(),$sql);
+			return $result->fetch_assoc();
+		}
+		public function deleteOrder($id){
+			$sql = "DELETE FROM orders WHERE id= $id";
+			return mysqli_query($this->connect(),$sql);
+		}
+			// order details
+		public function addOrderDetail($order_id, $product_id, $quantity, $price){
+			$created = date('Y-m-d h:i:s');
+			$sql = "INSERT INTO order_details(order_id, product_id, quantity,price) VALUES ('$order_id','$product_id','$quantity', '$price')";
+		
+			return mysqli_query($this->connect(),$sql);
+
+		}
+		public function listOrderDetail(){
+			$sql = "SELECT * FROM order_details";
+			$listOrderDetail = mysqli_query($this->connect(),$sql);
+			return $listOrderDetail;
+		}
+		public function getOrderDetail($id){
+			$sql = "SELECT * FROM order_details WHERE id = $id";
+			$result = mysqli_query($this->connect(),$sql);
+			return $result->fetch_assoc();
+		}
+		public function deleteOrderDetail($id){
+			$sql = "DELETE FROM order_details WHERE id= $id";
+			return mysqli_query($this->connect(),$sql);
+		}
+		function approveOrder($id) {
+			$sql = "UPDATE orders SET status = 0 WHERE id = $id";
+			return mysqli_query($this->connect(), $sql);
+		}
 
 	}
 ?>

@@ -22,6 +22,9 @@
 				case 'new':
 					$this->handleNew($action);
 					break;
+				case 'order':
+					$this->handleOrder($action);
+					break;
 				default:
 					# code...
 					break;
@@ -169,6 +172,23 @@
 					header("Location: index.php?controller=comment&action=product_detail");
 				}
 					# code...
+					break;
+				default:
+					# code...
+					break;
+			}
+		}
+		function handleOrder($action){
+			switch ($action) {
+				case 'buy':
+					if(isset($_POST['buy'])){
+						$user_id = $users->fetch_assoc();
+						$user_id = $user_id['id'];
+						$model = new FrontendModel();
+						if($model->addOrder($user_id) === TRUE) {
+							header("Location: index.php?controller=order&action=buy&id=$user_id");
+						} 
+					}
 					break;
 				default:
 					# code...

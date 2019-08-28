@@ -87,6 +87,18 @@
 
           </ul>
         </li>
+        <li class="active treeview menu-open">
+          <a href="#">
+            <i class="fa fa-shopping-cart"></i> <span>Orders</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li class="active"><a href="admin.php?controller=order&action=list_order"><i class="fa fa-circle-o"></i> List orders</a></li>
+            <li class="active"><a href="admin.php?controller=order&action=list_order_detail"><i class="fa fa-circle-o"></i> List order_details</a></li>
+          </ul>
+        </li>
          <li class="active treeview menu-open">
           <a href="#">
             <i class="fa fa-dashboard"></i> <span>Language</span>

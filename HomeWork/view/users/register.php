@@ -1,36 +1,4 @@
-<style type="text/css">
-    
-    .divider-text {
-    position: relative;
-    text-align: center;
-    margin-top: 15px;
-    margin-bottom: 15px;
-}
-.divider-text span {
-    padding: 7px;
-    font-size: 12px;
-    position: relative;   
-    z-index: 2;
-}
-.divider-text:after {
-    content: "";
-    position: absolute;
-    width: 100%;
-    border-bottom: 1px solid #ddd;
-    top: 55%;
-    left: 0;
-    z-index: 1;
-}
-
-.btn-facebook {
-    background-color: #405D9D;
-    color: #fff;
-}
-.btn-twitter {
-    background-color: #42AEEC;
-    color: #fff;
-}
-</style>
+<link rel="stylesheet" type="text/css" href="webroot/css/register_style.css">
 
 <div class="container">
 <br/>
@@ -41,8 +9,9 @@
 <p class="error"><?php
     $errorExistUser =' ';
  echo $errorExistUser?></p>
-
-
+<?php 
+    $username = $password = $name = $email =$phone = $birthday = '';
+?>
 
 <div class="card bg-light">
 <article class="card-body mx-auto" style="max-width: 400px;">
@@ -61,7 +30,7 @@
         <div class="input-group-prepend">
             <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
         </div>
-        <select class="custom-select" name="role" style="max-width: 120px;">
+        <select class="custom-select"  name="role" style="max-width: 120px;" >
             <option value="admin">Admin</option>
             <option value="customer">Customer</option>
         </select>
@@ -72,39 +41,39 @@
         <div class="input-group-prepend">
             <span class="input-group-text"> <i class="fa fa-user"></i> </span>
          </div>
-        <input name="username" class="form-control" placeholder="username e.g: Vanessa2808" type="text">
+        <input name="username" class="form-control" placeholder="username e.g: Vanessa2808" value="<?php echo $username ?>" type="text">
     </div> <!-- form-group// -->
      <div class="form-group input-group">
         <div class="input-group-prepend">
             <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
         </div>
-        <input class="form-control" name="password" placeholder="Create password" type="password">
+        <input class="form-control" name="password" placeholder="Create password" value="<?php echo $password ?>" type="password">
     </div>
     <div class="form-group input-group">
         <div class="input-group-prepend">
             <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
          </div>
-        <input name="name" class="form-control" placeholder="full name" type="text">
+        <input name="name" class="form-control" placeholder="full name" value="<?php echo $name ?>" type="text">
     </div> <!-- form-group// -->
 
     <div class="form-group input-group">
         <div class="input-group-prepend">
             <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
          </div>
-        <input name="email" class="form-control" placeholder="Email address" type="email">
+        <input name="email" class="form-control" placeholder="Email address" value="<?php echo $email  ?>" type="email">
     </div> <!-- form-group// -->
      <div class="form-group input-group">
         <div class="input-group-prepend">
             <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
          </div>
-        <input name="phone" class="form-control" placeholder="phone number" type="text">
+        <input name="phone" class="form-control" placeholder="phone number" value="<?php echo $phone ?>" type="text">
     </div> <!-- form-group// -->
 
     <div class="form-group input-group">
         <div class="input-group-prepend">
             <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
          </div>
-        <input name="birthday" class="form-control" placeholder="" type="date">
+        <input name="birthday" class="form-control" value="<?php echo $birthday ?>" placeholder="" type="date">
     </div> <!-- form-group// -->
 
 

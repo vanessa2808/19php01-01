@@ -42,7 +42,8 @@
 	
 }
 	</style>
-	<table id="cart" class="table table-hover table-condensed">
+	<table  id="cart" class="table table-hover table-condensed">
+		<form action="index.php?controller=order&action=buy" method="POST">
     				<thead>
 						<tr>
 							<th style="width:50%">Product</th>
@@ -54,6 +55,7 @@
 					</thead>
 					<tbody>
 						<tr>
+							
 							<td data-th="Product">
 								<div class="row">
 									<div class="col-sm-2 hidden-xs"><img style="height: 100px;" src="webroot/uploads/products/<?php echo $productDetail['image']?> " alt="..." class="img-responsive"/></div>
@@ -65,7 +67,7 @@
 							</td>
 							<td data-th="Price"><?php echo $productDetail['price']; ?></td>
 							<td data-th="Quantity">
-								<input type="number" class="form-control text-center" value="1">
+								<input name="quantity" type="number" class="form-control text-center" value="1">
 							</td>
 							<td data-th="Subtotal" class="text-center"><?php echo $productDetail['price']; ?></td>
 							<td class="actions" data-th="">
@@ -82,10 +84,12 @@
 							<td><a href="index.php?controller=product&action=list_product" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
 							<td colspan="2" class="hidden-xs"></td>
 							<td class="hidden-xs text-center"><strong><?php echo $productDetail['price']; ?></strong></td>
-							<td><a href="index.php?controller=product&action=buy_product&id=<?php echo $id; ?>" class="btn btn-success btn-block">Buy now <i class="fa fa-angle-right"></i></a></td>
+							<td><a name="buy" href="index.php?controller=order&action=buy&id=<?php echo $id; ?>" class="btn btn-success btn-block">Buy now <i class="fa fa-angle-right"></i></a></td>
+							<td><input type="hidden" name="user_id"></td>
 						</tr>
 					</tfoot>
 				</table>
+			</form>
 				<div class="col-xs-9">
                     <ul class="menu-items">
                         <li style="list-style-type: none;" class="active">More detail of Product</li>
