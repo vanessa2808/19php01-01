@@ -185,14 +185,13 @@ class BackendModel extends DatabaseConnect {
 		public function addOrder($user_id){
 			$created = date('Y-m-d h:i:s');
 			$sql = "INSERT INTO orders(user_id, created, status) VALUES ('$user_id','$created','$status')";
+	
 		
 			return mysqli_query($this->connect(),$sql);
 
 		}
 		public function listOrder(){
-			$sql = "SELECT users.id as user_id
-			 FROM orders
-			 INNER JOIN  users ON users.id = orders.user_id";
+			$sql = "SELECT * FROM orders";
 			$listOrder = mysqli_query($this->connect(),$sql);
 			return $listOrder;
 		}

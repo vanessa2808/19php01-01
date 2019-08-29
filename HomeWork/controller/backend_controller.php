@@ -342,18 +342,22 @@
 	function handleOrder($action){
 			switch ($action) {
 				case 'buy':
-					if(isset($_POST['buy'])){
-					if (isset($_SESSION['login'])) {
-						$user_id = $users->fetch_assoc();
-						$user_id = $user_id['id'];
-						$model = new BackendModel();
-						if($model->addOrder($user_id) === TRUE) {
-							header("Location: index.php?controller=order&action=buy&id=$user_id");
-						} 
-					} else {
-						header("Location: index.php");
+					if (isset($_POST['buy'])) {
+						if (isset($_SESSION['login'])) {
+							$user_id = $_POST['user_id'];
+							$model = new BackendModel();
+							$users = $model->getUserID($_SESSION['login']['username']);
+							$user_id = $users->fetch_assoc();
+							$user_id = $user_id['id'];
+							if ($model->addOrder($user_id) === TRUE) {
+								header("Location:admin.php?controller=order&action=list_order&id=<?php echo $id ?>");
+								alert("buy successfully!");
+							}
+						} else {
+							header("Location: admin.php?controller=user&action=login");
+						}
 					}
-				}
+					include 'view/products/product_detail_frontend.php';
 					break;
 				case 'list_order':
 					# code...
@@ -370,15 +374,15 @@
 						}
 						# code...
 						break;
-				case 'delete_comment':
+				case 'delete_order':
 					$id = $_GET['id'];
 					$model = new BackendModel();
-					if($model->deleteOrder($id)===TRUE){
+					if($model->deleteOrder($id) === TRUE){
 					header("Location: admin.php?controller=order&action=list_order");
 				}
 					break;
 				case 'list_order_detail':
-						$model = new BackendModel();
+				 	$model = new BackendModel();
 					$listOrderDetail = $model->listOrderDetail();
 					include 'view/shopping/list_order_details.php';
 					break;
