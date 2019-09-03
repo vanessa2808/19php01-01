@@ -11,7 +11,7 @@
   $number_per_page = 04;
   $start_from = ($page -1)* 04;
   $query = "SELECT * FROM products limit $start_from,$number_per_page";
-  $result = mysqli_query($connect, $query);
+  $result = mysqli_query($this->connect, $query);
 ?>
  
   <div class="content-wrapper">
@@ -119,7 +119,7 @@
               </table>
               <?php 
                 $pr_query = "SELECT * FROM products";
-                $pr_result = mysqli_query($connect, $pr_query);
+                $pr_result = mysqli_query($this->connect, $pr_query);
                 $totalrecords = mysqli_num_rows($pr_result);
                 //echo $total_records;
                 $totalPages = ceil($totalrecords/ $number_per_page);
